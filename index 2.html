@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>CEZOO Delivery Admin</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+:root{
+  --green:#16a34a;
+  --green-dark:#15803d;
+  --green-soft:#ecfdf3;
+  --red:#dc2626;
+  --red-soft:#fef2f2;
+  --orange:#ea580c;
+  --orange-soft:#fff7ed;
+  --blue:#2563eb;
+  --blue-soft:#eff6ff;
+  --ink:#111827;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --page:#f6f7f9;
+  --card:#fff;
+  --shadow:0 12px 34px rgba(15,23,42,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,Arial,sans-serif;background:var(--page);color:var(--ink)}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+
+.authPage{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  background:
+    radial-gradient(circle at top left,rgba(34,197,94,.17),transparent 32%),
+    radial-gradient(circle at bottom right,rgba(22,163,74,.10),transparent 28%),
+    #f8fafc;
+}
+.authCard{
+  width:min(100%,420px);
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+.brand{
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:.3px;
+  color:var(--green);
+  margin-bottom:6px;
+}
+.authCard h1{margin:0 0 6px;font-size:23px}
+.authCard p{margin:0 0 22px;color:var(--muted);font-size:13px;line-height:1.6}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}
+.field input{
+  width:100%;
+  height:48px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:0 14px;
+  outline:none;
+  background:#fff;
+}
+.field input:focus{border-color:#86efac;box-shadow:0 0 0 3px rgba(34,197,94,.10)}
+.primaryBtn{
+  width:100%;
+  height:50px;
+  border:0;
+  border-radius:14px;
+  background:var(--green);
+  color:#fff;
+  font-weight:850;
+}
+.primaryBtn:disabled{opacity:.65;cursor:not-allowed}
+.authMsg{margin-top:12px;font-size:12px;color:var(--red);min-height:18px}
+
+.app{min-height:100vh}
+.topbar{
+  height:72px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:0 22px;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.topLeft{display:flex;align-items:center;gap:14px}
+.logoBox{
+  width:42px;height:42px;border-radius:13px;
+  display:grid;place-items:center;
+  background:var(--green);
+  color:#fff;font-weight:900
+}
+.topTitle strong{display:block;font-size:15px}
+.topTitle span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.topActions{display:flex;align-items:center;gap:10px}
+.iconBtn,.ghostBtn{
+  height:40px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:#fff;
+  color:var(--ink);
+  font-weight:750;
+}
+.iconBtn{width:40px}
+.ghostBtn{padding:0 13px}
+
+.layout{
+  display:grid;
+  grid-template-columns:240px minmax(0,1fr);
+  min-height:calc(100vh - 72px);
+}
+.sidebar{
+  padding:18px 14px;
+  border-right:1px solid var(--line);
+  background:#fff;
+}
+.navBtn{
+  width:100%;
+  height:46px;
+  border:0;
+  border-radius:12px;
+  background:transparent;
+  text-align:left;
+  padding:0 14px;
+  margin-bottom:6px;
+  font-weight:750;
+  color:#475569;
+}
+.navBtn.active{background:var(--green-soft);color:var(--green-dark)}
+.sidebarFoot{
+  margin-top:22px;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#f8fafc;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.5;
+}
+.main{
+  padding:22px;
+  min-width:0;
+}
+.pageHeader{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:18px;
+}
+.pageHeader h1{margin:0;font-size:24px}
+.pageHeader p{margin:5px 0 0;color:var(--muted);font-size:12px}
+.statusControl{
+  min-width:260px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:16px;
+  padding:12px 14px;
+}
+.statusText strong{display:block;font-size:12px}
+.statusText span{display:block;margin-top:3px;font-size:10px;color:var(--muted)}
+.switch{position:relative;width:52px;height:30px;flex:0 0 auto}
+.switch input{display:none}
+.slider{
+  position:absolute;inset:0;border-radius:999px;background:#cbd5e1;transition:.2s
+}
+.slider:before{
+  content:"";position:absolute;width:24px;height:24px;left:3px;top:3px;
+  background:#fff;border-radius:50%;box-shadow:0 2px 5px rgba(0,0,0,.18);transition:.2s
+}
+.switch input:checked + .slider{background:var(--green)}
+.switch input:checked + .slider:before{transform:translateX(22px)}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin-bottom:18px;
+}
+.stat{
+  background:#fff;border:1px solid var(--line);border-radius:17px;padding:16px;
+}
+.statLabel{font-size:11px;color:var(--muted);font-weight:700}
+.statValue{margin-top:7px;font-size:27px;font-weight:900}
+.statMeta{margin-top:6px;font-size:10px;color:#94a3b8}
+
+.toolbar{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin-bottom:14px
+}
+.searchWrap{flex:1;min-width:220px}
+.searchWrap input,.toolbar select{
+  height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;outline:none
+}
+.searchWrap input{width:100%;padding:0 14px}
+.toolbar select{padding:0 12px}
+.refreshBtn{
+  height:44px;padding:0 14px;border:1px solid var(--line);border-radius:12px;
+  background:#fff;font-weight:800
+}
+
+.tableCard{
+  background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden
+}
+.tableScroll{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:900px}
+th,td{padding:13px 14px;border-bottom:1px solid #eef2f7;text-align:left;vertical-align:middle}
+th{
+  position:sticky;top:0;background:#f8fafc;z-index:1;
+  color:#64748b;font-size:10px;text-transform:uppercase;letter-spacing:.4px
+}
+td{font-size:12px}
+.nameCell strong{display:block;font-size:12px}
+.nameCell span{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:5px 9px;border-radius:999px;font-size:10px;font-weight:850;text-transform:uppercase
+}
+.badge.pending{background:var(--orange-soft);color:var(--orange)}
+.badge.approved{background:var(--green-soft);color:var(--green-dark)}
+.badge.rejected{background:var(--red-soft);color:var(--red)}
+.badge.processing{background:var(--blue-soft);color:var(--blue)}
+.rowActions{display:flex;gap:7px}
+.smallBtn{
+  height:34px;border:1px solid var(--line);border-radius:9px;padding:0 10px;
+  background:#fff;font-size:10px;font-weight:800
+}
+.smallBtn.view{color:var(--blue)}
+.smallBtn.approve{color:var(--green-dark)}
+.smallBtn.reject{color:var(--red)}
+.empty{
+  padding:50px 20px;text-align:center;color:var(--muted);font-size:13px
+}
+
+.drawerOverlay{
+  position:fixed;inset:0;z-index:400;
+  background:rgba(15,23,42,.45);
+  opacity:0;visibility:hidden;pointer-events:none;transition:.2s
+}
+.drawerOverlay.open{opacity:1;visibility:visible;pointer-events:auto}
+.drawer{
+  position:absolute;right:0;top:0;height:100%;width:min(94%,520px);
+  background:#fff;transform:translateX(100%);transition:.25s;
+  display:flex;flex-direction:column
+}
+.drawerOverlay.open .drawer{transform:translateX(0)}
+.drawerHead{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px;border-bottom:1px solid var(--line)
+}
+.drawerHead h2{margin:0;font-size:18px}
+.closeBtn{width:36px;height:36px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.drawerBody{padding:18px;overflow:auto}
+.detailGrid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px
+}
+.detailBox{
+  border:1px solid var(--line);border-radius:13px;padding:12px;background:#f8fafc
+}
+.detailBox span{display:block;font-size:9px;color:var(--muted);font-weight:800;text-transform:uppercase}
+.detailBox strong{display:block;margin-top:5px;font-size:12px;overflow-wrap:anywhere}
+.docsTitle{font-size:12px;font-weight:900;margin:18px 0 10px}
+.docsGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.docBtn{
+  min-height:44px;border:1px solid var(--line);border-radius:11px;
+  background:#fff;text-align:left;padding:10px 12px;font-size:11px;font-weight:800
+}
+.docBtn:disabled{opacity:.45;cursor:not-allowed}
+.drawerActions{
+  margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px
+}
+.approveBtn,.rejectBtn{
+  height:48px;border:0;border-radius:13px;color:#fff;font-weight:850
+}
+.approveBtn{background:var(--green)}
+.rejectBtn{background:var(--red)}
+.note{
+  margin-top:14px;padding:12px;border-radius:12px;background:#f8fafc;
+  font-size:10px;color:var(--muted);line-height:1.5
+}
+.toast{
+  position:fixed;left:50%;bottom:22px;z-index:1000;
+  transform:translate(-50%,20px);
+  opacity:0;pointer-events:none;
+  min-width:220px;max-width:90vw;
+  padding:11px 14px;border-radius:12px;background:#111827;color:#fff;
+  font-size:11px;font-weight:700;text-align:center;transition:.2s
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast.error{background:#991b1b}
+
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{display:none}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pageHeader{align-items:stretch;flex-direction:column}
+  .statusControl{min-width:0;width:100%}
+}
+@media(max-width:520px){
+  .topbar{padding:0 14px}
+  .topTitle span{display:none}
+  .ghostBtn{padding:0 10px}
+  .main{padding:14px}
+  .stats{gap:10px}
+  .stat{padding:13px}
+  .statValue{font-size:23px}
+  .detailGrid,.docsGrid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<section id="appPage" class="app">
+  <header class="topbar">
+    <div class="topLeft">
+      <div class="logoBox">C</div>
+      <div class="topTitle">
+        <strong>Delivery Operations</strong>
+        <span>Applications, approvals and delivery control</span>
+      </div>
+    </div>
+
+    <div class="topActions">
+      <button id="topRefreshBtn" class="iconBtn" title="Refresh">↻</button>
+      
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <button class="navBtn active">Dashboard</button>
+      <button class="navBtn">Partner Applications</button>
+      <button class="navBtn">Delivery Control</button>
+
+      <div class="sidebarFoot">
+        Admin dashboard opens directly and manages delivery applications from Supabase.
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="pageHeader">
+        <div>
+          <h1>Partner Applications</h1>
+          <p>Review submitted documents and approve or reject delivery partners.</p>
+        </div>
+
+        <div class="statusControl">
+          <div class="statusText">
+            <strong id="deliveryStateTitle">Delivery Loading...</strong>
+            <span id="deliveryStateSub">Checking global delivery availability</span>
+          </div>
+
+          <label class="switch">
+            <input id="deliveryToggle" type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <section class="stats">
+        <div class="stat">
+          <div class="statLabel">Total Applications</div>
+          <div id="statTotal" class="statValue">0</div>
+          <div class="statMeta">All submitted partners</div>
+        </div>
+
+        <div class="stat">
+          <div class="statLabel">Pending Review</div>
+          <div id="statPending" class="statValue">0</div>
+          <div class="statMeta">Need admin action</div>
+        </div>
+
+        <div class="stat">
+          <div class="statLabel">Approved</div>
+          <div id="statApproved" class="statValue">0</div>
+          <div class="statMeta">Can access delivery dashboard</div>
+        </div>
+
+        <div class="stat">
+          <div class="statLabel">Rejected</div>
+          <div id="statRejected" class="statValue">0</div>
+          <div class="statMeta">Applications not approved</div>
+        </div>
+      </section>
+
+      <div class="toolbar">
+        <div class="searchWrap">
+          <input id="searchInput" type="search" placeholder="Search name, mobile, vehicle number...">
+        </div>
+
+        <select id="statusFilter">
+          <option value="all">All Status</option>
+          <option value="pending">Pending</option>
+          <option value="approved">Approved</option>
+          <option value="rejected">Rejected</option>
+          <option value="processing">Processing</option>
+        </select>
+
+        <button id="refreshBtn" class="refreshBtn">Refresh</button>
+      </div>
+
+      <section class="tableCard">
+        <div class="tableScroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Partner</th>
+                <th>Mobile</th>
+                <th>Vehicle</th>
+                <th>Gender</th>
+                <th>Status</th>
+                <th>Submitted</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="applicationsBody"></tbody>
+          </table>
+        </div>
+        <div id="emptyState" class="empty hidden">No applications found.</div>
+      </section>
+    </main>
+  </div>
+</section>
+
+<div id="drawerOverlay" class="drawerOverlay">
+  <aside class="drawer">
+    <div class="drawerHead">
+      <h2>Application Details</h2>
+      <button id="closeDrawerBtn" class="closeBtn">×</button>
+    </div>
+
+    <div id="drawerBody" class="drawerBody"></div>
+  </aside>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+(function(){
+
+const SUPABASE_URL = "https://ycqwdeiykbkfmmlpgdzd.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_-4RzQVudUy_VsvSpHTxNfg_hrdsQW0j";
+
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const applicationsBody = document.getElementById("applicationsBody");
+const emptyState = document.getElementById("emptyState");
+const searchInput = document.getElementById("searchInput");
+const statusFilter = document.getElementById("statusFilter");
+const refreshBtn = document.getElementById("refreshBtn");
+const topRefreshBtn = document.getElementById("topRefreshBtn");
+
+const statTotal = document.getElementById("statTotal");
+const statPending = document.getElementById("statPending");
+const statApproved = document.getElementById("statApproved");
+const statRejected = document.getElementById("statRejected");
+
+const deliveryToggle = document.getElementById("deliveryToggle");
+const deliveryStateTitle = document.getElementById("deliveryStateTitle");
+const deliveryStateSub = document.getElementById("deliveryStateSub");
+
+const drawerOverlay = document.getElementById("drawerOverlay");
+const drawerBody = document.getElementById("drawerBody");
+const closeDrawerBtn = document.getElementById("closeDrawerBtn");
+const toast = document.getElementById("toast");
+
+let applications = [];
+let selectedApplication = null;
+let loading = false;
+
+function escapeHtml(value){
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function showToast(message,error=false){
+  toast.textContent = message;
+  toast.className = "toast show" + (error ? " error" : "");
+  clearTimeout(showToast._timer);
+  showToast._timer = setTimeout(()=>{
+    toast.className = "toast";
+  },2400);
+}
+
+function formatDate(value){
+  if(!value) return "-";
+  try{
+    return new Date(value).toLocaleString("en-IN",{
+      day:"2-digit",
+      month:"short",
+      year:"numeric",
+      hour:"2-digit",
+      minute:"2-digit"
+    });
+  }catch{
+    return value;
+  }
+}
+
+function normalizeStatus(value){
+  return String(value || "pending").trim().toLowerCase();
+}
+
+function getFilteredApplications(){
+  const q = searchInput.value.trim().toLowerCase();
+  const status = statusFilter.value;
+
+  return applications.filter(item=>{
+    const itemStatus = normalizeStatus(item.status);
+
+    if(status !== "all" && itemStatus !== status){
+      return false;
+    }
+
+    if(!q) return true;
+
+    const haystack = [
+      item.full_name,
+      item.mobile,
+      item.vehicle_number,
+      item.gender,
+      item.status
+    ].join(" ").toLowerCase();
+
+    return haystack.includes(q);
+  });
+}
+
+function updateStats(){
+  statTotal.textContent = applications.length;
+  statPending.textContent = applications.filter(x=>normalizeStatus(x.status)==="pending").length;
+  statApproved.textContent = applications.filter(x=>normalizeStatus(x.status)==="approved").length;
+  statRejected.textContent = applications.filter(x=>normalizeStatus(x.status)==="rejected").length;
+}
+
+function renderApplications(){
+  const rows = getFilteredApplications();
+
+  applicationsBody.innerHTML = "";
+  emptyState.classList.toggle("hidden",rows.length > 0);
+
+  if(rows.length === 0){
+    return;
+  }
+
+  applicationsBody.innerHTML = rows.map(item=>{
+    const status = normalizeStatus(item.status);
+
+    return `
+      <tr>
+        <td class="nameCell">
+          <strong>${escapeHtml(item.full_name || "Unnamed")}</strong>
+          <span>ID: ${escapeHtml(item.id || "-")}</span>
+        </td>
+
+        <td>${escapeHtml(item.mobile || "-")}</td>
+        <td>${escapeHtml(item.vehicle_number || "-")}</td>
+        <td>${escapeHtml(item.gender || "-")}</td>
+
+        <td>
+          <span class="badge ${escapeHtml(status)}">
+            ${escapeHtml(status)}
+          </span>
+        </td>
+
+        <td>${escapeHtml(formatDate(item.created_at))}</td>
+
+        <td>
+          <div class="rowActions">
+            <button class="smallBtn view" onclick="window.viewApplication('${item.id}')">
+              View
+            </button>
+
+            ${
+              status !== "approved"
+              ? `<button class="smallBtn approve" onclick="window.quickStatus('${item.id}','approved')">Approve</button>`
+              : ""
+            }
+
+            ${
+              status !== "rejected"
+              ? `<button class="smallBtn reject" onclick="window.quickStatus('${item.id}','rejected')">Reject</button>`
+              : ""
+            }
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join("");
+}
+
+async function loadApplications(){
+  if(loading) return;
+  loading = true;
+
+  refreshBtn.disabled = true;
+  topRefreshBtn.disabled = true;
+
+  try{
+    const {data,error} = await sb
+      .from("delivery_partner_applications")
+      .select(`
+        id,
+        full_name,
+        mobile,
+        gender,
+        vehicle_number,
+        vehicle_photo_path,
+        rc_card_path,
+        license_path,
+        insurance_path,
+        aadhaar_path,
+        pan_path,
+        status,
+        delivery_boy_uuid,
+        created_at,
+        updated_at
+      `)
+      .order("created_at",{ascending:false});
+
+    if(error) throw error;
+
+    applications = data || [];
+    updateStats();
+    renderApplications();
+
+  }catch(error){
+    console.error(error);
+    showToast(error.message || "Unable to load applications",true);
+  }finally{
+    loading = false;
+    refreshBtn.disabled = false;
+    topRefreshBtn.disabled = false;
+  }
+}
+
+async function setApplicationStatus(id,status){
+  const {data,error} = await sb
+    .from("delivery_partner_applications")
+    .update({
+      status:status,
+      updated_at:new Date().toISOString()
+    })
+    .eq("id",id)
+    .select()
+    .maybeSingle();
+
+  if(error) throw error;
+
+  const index = applications.findIndex(x=>String(x.id)===String(id));
+
+  if(index >= 0 && data){
+    applications[index] = data;
+  }
+
+  updateStats();
+  renderApplications();
+
+  if(selectedApplication && String(selectedApplication.id)===String(id)){
+    selectedApplication = data || {
+      ...selectedApplication,
+      status
+    };
+    renderDrawer();
+  }
+
+  return data;
+}
+
+window.quickStatus = async function(id,status){
+  const label = status === "approved" ? "approve" : "reject";
+
+  if(!confirm(`Are you sure you want to ${label} this application?`)){
+    return;
+  }
+
+  try{
+    await setApplicationStatus(id,status);
+    showToast(`Application ${status}`);
+  }catch(error){
+    console.error(error);
+    showToast(error.message || "Status update failed",true);
+  }
+};
+
+async function openPrivateDocument(path){
+  if(!path){
+    showToast("Document not uploaded",true);
+    return;
+  }
+
+  try{
+    const {data,error} = await sb
+      .storage
+      .from("delivery-documents")
+      .createSignedUrl(path,300);
+
+    if(error) throw error;
+
+    if(!data?.signedUrl){
+      throw new Error("Signed URL not returned");
+    }
+
+    window.open(data.signedUrl,"_blank","noopener");
+
+  }catch(error){
+    console.error(error);
+    showToast(error.message || "Unable to open document",true);
+  }
+}
+
+window.openDoc = openPrivateDocument;
+
+function docButton(label,path){
+  const disabled = !path ? "disabled" : "";
+  const safePath = JSON.stringify(String(path || ""));
+
+  return `
+    <button class="docBtn" ${disabled} onclick='window.openDoc(${safePath})'>
+      ${escapeHtml(label)}
+      <div style="font-size:9px;color:#94a3b8;margin-top:4px;font-weight:600">
+        ${path ? "Open securely" : "Not uploaded"}
+      </div>
+    </button>
+  `;
+}
+
+function renderDrawer(){
+  if(!selectedApplication){
+    drawerBody.innerHTML = "";
+    return;
+  }
+
+  const a = selectedApplication;
+  const status = normalizeStatus(a.status);
+
+  drawerBody.innerHTML = `
+    <div class="detailGrid">
+      <div class="detailBox">
+        <span>Full Name</span>
+        <strong>${escapeHtml(a.full_name || "-")}</strong>
+      </div>
+
+      <div class="detailBox">
+        <span>Mobile</span>
+        <strong>${escapeHtml(a.mobile || "-")}</strong>
+      </div>
+
+      <div class="detailBox">
+        <span>Gender</span>
+        <strong>${escapeHtml(a.gender || "-")}</strong>
+      </div>
+
+      <div class="detailBox">
+        <span>Vehicle Number</span>
+        <strong>${escapeHtml(a.vehicle_number || "-")}</strong>
+      </div>
+
+      <div class="detailBox">
+        <span>Status</span>
+        <strong>
+          <span class="badge ${escapeHtml(status)}">${escapeHtml(status)}</span>
+        </strong>
+      </div>
+
+      <div class="detailBox">
+        <span>Submitted</span>
+        <strong>${escapeHtml(formatDate(a.created_at))}</strong>
+      </div>
+    </div>
+
+    <div class="docsTitle">Submitted Documents</div>
+
+    <div class="docsGrid">
+      ${docButton("Vehicle Photo",a.vehicle_photo_path)}
+      ${docButton("Vehicle RC",a.rc_card_path)}
+      ${docButton("Driving Licence",a.license_path)}
+      ${docButton("Bike Insurance",a.insurance_path)}
+      ${docButton("Aadhaar Card",a.aadhaar_path)}
+      ${docButton("PAN Card",a.pan_path)}
+    </div>
+
+    <div class="drawerActions">
+      <button class="approveBtn" onclick="window.drawerStatus('approved')">
+        Approve Partner
+      </button>
+
+      <button class="rejectBtn" onclick="window.drawerStatus('rejected')">
+        Reject Application
+      </button>
+    </div>
+
+    <div class="note">
+      Approval changes the application status to <b>approved</b>. Your delivery-partner app can then route that mobile number to the order dashboard.
+    </div>
+  `;
+}
+
+window.viewApplication = function(id){
+  selectedApplication = applications.find(x=>String(x.id)===String(id)) || null;
+
+  if(!selectedApplication) return;
+
+  renderDrawer();
+  drawerOverlay.classList.add("open");
+};
+
+window.drawerStatus = async function(status){
+  if(!selectedApplication) return;
+
+  const action = status === "approved" ? "approve" : "reject";
+
+  if(!confirm(`Are you sure you want to ${action} ${selectedApplication.full_name || "this partner"}?`)){
+    return;
+  }
+
+  try{
+    await setApplicationStatus(selectedApplication.id,status);
+    showToast(`Application ${status}`);
+  }catch(error){
+    console.error(error);
+    showToast(error.message || "Status update failed",true);
+  }
+};
+
+function closeDrawer(){
+  drawerOverlay.classList.remove("open");
+}
+
+closeDrawerBtn.addEventListener("click",closeDrawer);
+
+drawerOverlay.addEventListener("click",event=>{
+  if(event.target === drawerOverlay){
+    closeDrawer();
+  }
+});
+
+document.addEventListener("keydown",event=>{
+  if(event.key === "Escape"){
+    closeDrawer();
+  }
+});
+
+async function ensureDeliverySettings(){
+  const {data,error} = await sb
+    .from("delivery_settings")
+    .select("id,delivery_enabled,updated_at")
+    .eq("id",1)
+    .maybeSingle();
+
+  if(error){
+    throw error;
+  }
+
+  if(data){
+    return data;
+  }
+
+  const insertResponse = await sb
+    .from("delivery_settings")
+    .insert({
+      id:1,
+      delivery_enabled:true
+    })
+    .select()
+    .single();
+
+  if(insertResponse.error){
+    throw insertResponse.error;
+  }
+
+  return insertResponse.data;
+}
+
+function paintDeliveryState(enabled){
+  deliveryToggle.checked = !!enabled;
+
+  if(enabled){
+    deliveryStateTitle.textContent = "Delivery ON";
+    deliveryStateSub.textContent = "Delivery partners can receive orders";
+  }else{
+    deliveryStateTitle.textContent = "Delivery OFF";
+    deliveryStateSub.textContent = "New delivery operations are stopped";
+  }
+}
+
+async function loadDeliverySetting(){
+  try{
+    const data = await ensureDeliverySettings();
+    paintDeliveryState(data.delivery_enabled);
+  }catch(error){
+    console.error(error);
+    deliveryToggle.disabled = true;
+    deliveryStateTitle.textContent = "Delivery Control Unavailable";
+    deliveryStateSub.textContent = error.message || "Check delivery_settings permissions";
+  }
+}
+
+deliveryToggle.addEventListener("change",async()=>{
+  const enabled = deliveryToggle.checked;
+
+  deliveryToggle.disabled = true;
+
+  try{
+    const {error} = await sb
+      .from("delivery_settings")
+      .update({
+        delivery_enabled:enabled,
+        updated_at:new Date().toISOString()
+      })
+      .eq("id",1);
+
+    if(error) throw error;
+
+    paintDeliveryState(enabled);
+    showToast(enabled ? "Delivery turned ON" : "Delivery turned OFF");
+
+  }catch(error){
+    console.error(error);
+    deliveryToggle.checked = !enabled;
+    showToast(error.message || "Unable to change delivery status",true);
+  }finally{
+    deliveryToggle.disabled = false;
+  }
+});
+
+async function startDashboard(){
+  await Promise.all([
+    loadApplications(),
+    loadDeliverySetting()
+  ]);
+}
+
+refreshBtn.addEventListener("click",()=>{
+  loadApplications();
+  loadDeliverySetting();
+});
+
+topRefreshBtn.addEventListener("click",()=>{
+  loadApplications();
+  loadDeliverySetting();
+});
+
+searchInput.addEventListener("input",renderApplications);
+statusFilter.addEventListener("change",renderApplications);
+
+(async function init(){
+  await startDashboard();
+})();
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,3670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>CEZOO Delivery Partner</title>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;width:100%;min-height:100%;}
+.spa-page{display:none;width:100%;min-height:100vh;}
+.spa-page.active{display:block;}
+#orderPage.active{min-height:100vh;}
+
+/* ===== index.html ===== */
+
+#loginPage *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+#loginPage, #loginPage{
+    width:100%;
+    height:100%;
+    overflow-x:hidden;
+    background:#fff;
+}
+
+#loginPage .container{
+    width:100%;
+    min-height:100vh;
+}
+
+#loginPage .hero{
+    width:100%;
+    height:71vh;
+    overflow:hidden;
+    border-bottom-left-radius:40px;
+    border-bottom-right-radius:40px;
+    padding-bottom: 0px;
+}
+
+#loginPage .hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+#loginPage .bottom-section{
+    width:100%;
+    background:#fff;
+    padding:15px 20px 20px;
+}
+
+#loginPage .mobile-box{
+    width:100%;
+    height:50px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    background:#fff;
+    margin-bottom:12px;
+}
+
+#loginPage .country-code{
+    height:100%;
+    padding:0 15px;
+    display:flex;
+    align-items:center;
+    background:#f8f8f8;
+    border-right:1px solid #ddd;
+    font-size:16px;
+    font-weight:600;
+}
+
+#loginPage .mobile-box input{
+    flex:1;
+    height:100%;
+    border:none;
+    outline:none;
+    padding:0 15px;
+    font-size:16px;
+}
+
+#loginPage .otp-btn{
+    width:100%;
+    height:50px;
+    border:none;
+    border-radius:12px;
+    background:#0C831F;
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+#loginPage .otp-btn:hover{
+    background:#096b18;
+}
+
+
+
+@keyframes shake{
+    0%{transform:translateX(0);}
+    20%{transform:translateX(-8px);}
+    40%{transform:translateX(8px);}
+    60%{transform:translateX(-8px);}
+    80%{transform:translateX(8px);}
+    100%{transform:translateX(0);}
+}
+
+#loginPage .otp-container{
+    display:flex;
+    justify-content:space-between;
+    gap:8px;
+    margin-bottom:15px;
+}
+
+#loginPage .otp-box{
+    width:50px;
+    height:55px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    text-align:center;
+    font-size:22px;
+    font-weight:600;
+    outline:none;
+    background:#fff;
+}
+
+#loginPage .otp-box:focus{
+    border-color:#0C831F;
+}
+
+#loginPage .otp-container.shake{
+    animation:shake .4s;
+}
+#loginPage .terms-text{
+    margin-top:14px;
+    text-align:center;
+    font-size:12px;
+    color:#757575;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+#loginPage .terms-text a{
+    color:#0C831F;
+    font-weight:600;
+    text-decoration:none;
+}
+
+#loginPage .terms-text a:hover{
+    text-decoration:underline;
+}
+#loginPage .otp-title{
+    text-align:center;
+    font-size:20px;
+    font-weight:700;
+    color:#111;
+    margin-bottom:18px;
+}
+/* ===== document.html ===== */
+
+#documentPage *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,Arial,sans-serif;
+}
+
+#documentPage{
+    background:#f4f6f8;
+    min-height:100vh;
+}
+
+/* TOP IMAGE TAKES 2/4 OF MOBILE SCREEN */
+#documentPage .top-image{
+    width:100%;
+    height:45vh;
+    overflow:hidden;
+    border-bottom-left-radius:35px;
+    border-bottom-right-radius:35px;
+}
+
+#documentPage .top-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* FORM SECTION */
+#documentPage .form-wrapper{
+    background:#fff;
+    padding:25px;
+    min-height:55vh;
+
+    border-top-left-radius:30px;
+    border-top-right-radius:30px;
+}
+
+#documentPage .heading{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+#documentPage .heading h2{
+    color:#16a34a;
+    font-size:28px;
+    margin-bottom:5px;
+}
+
+#documentPage .heading p{
+    color:#666;
+    font-size:14px;
+}
+
+#documentPage .progress{
+    text-align:center;
+    color:#16a34a;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+/* STEP FORM */
+#documentPage .step{
+    display:none;
+    animation:fade .3s ease;
+}
+
+#documentPage .step.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateX(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+#documentPage label{
+    display:block;
+    margin-bottom:8px;
+    color:#333;
+    font-weight:600;
+}
+
+#documentPage input, #documentPage select{
+    width:100%;
+    padding:14px;
+    border:2px solid #e5e5e5;
+    border-radius:12px;
+    margin-bottom:18px;
+    font-size:15px;
+}
+
+#documentPage input:focus, #documentPage select:focus{
+    outline:none;
+    border-color:#16a34a;
+}
+
+#documentPage .upload-card{
+    border:2px dashed #16a34a;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    background:#f0fff4;
+}
+
+#documentPage .upload-card h3{
+    color:#16a34a;
+    margin-bottom:10px;
+}
+
+#documentPage .upload-card p{
+    color:#666;
+    margin-bottom:15px;
+}
+
+#documentPage .upload-card input[type="file"]{
+    width:100%;
+    margin:0;
+    padding:0;
+    border:none;
+    background:transparent;
+    font-size:14px;
+    color:#555;
+}
+
+#documentPage .upload-card input[type="file"]::file-selector-button{
+    border:none;
+    background:#16a34a;
+    color:#fff;
+    padding:12px 18px;
+    margin-right:12px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+#documentPage .upload-card input[type="file"]::file-selector-button:hover{
+    background:#15803d;
+    transform:translateY(-1px);
+}
+
+#documentPage .upload-card input[type="file"]::-webkit-file-upload-button{
+    border:none;
+    background:#16a34a;
+    color:#fff;
+    padding:12px 18px;
+    margin-right:12px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* BUTTONS */
+#documentPage .buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+#documentPage button{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+}
+
+#documentPage .prev{
+    background:#e5e7eb;
+}
+
+#documentPage .next{
+    background:#16a34a;
+    color:#fff;
+}
+
+#documentPage .submit{
+    background:#15803d;
+    color:#fff;
+}
+
+#documentPage .success{
+    text-align:center;
+    padding:20px;
+}
+
+#documentPage .success h2{
+    color:#16a34a;
+    margin-bottom:10px;
+}
+
+#documentPage .success p{
+    color:#666;
+}
+
+@keyframes shake{
+    0%{ transform: translateX(0); }
+    20%{ transform: translateX(-10px); }
+    40%{ transform: translateX(10px); }
+    60%{ transform: translateX(-10px); }
+    80%{ transform: translateX(10px); }
+    100%{ transform: translateX(0); }
+}
+
+#documentPage .shake{
+    animation:shake .4s ease;
+}
+#documentPage .success-page{
+    position:fixed;
+    inset:0;
+    background:#ffffff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    z-index:99999;
+}
+
+#documentPage .success-circle{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    background:#16a34a;
+    color:#fff;
+    font-size:75px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 0 0 20px rgba(22,163,74,.08),
+               0 0 0 40px rgba(22,163,74,.05);
+    animation:successPop .7s ease;
+}
+
+#documentPage .success-page h1{
+    margin-top:30px;
+    font-size:32px;
+    color:#111;
+    font-weight:700;
+}
+
+#documentPage .success-page p{
+    margin-top:10px;
+    color:#666;
+    font-size:16px;
+    text-align:center;
+    padding:0 25px;
+}
+
+/* Confetti */
+
+#documentPage .confetti{
+    position:absolute;
+    width:12px;
+    height:12px;
+    border-radius:3px;
+    animation:fall 3s linear infinite;
+}
+
+#documentPage .c1{background:#FFD700;left:15%;top:-20px;animation-delay:.1s;}
+#documentPage .c2{background:#16a34a;left:25%;top:-20px;animation-delay:.5s;}
+#documentPage .c3{background:#3b82f6;left:40%;top:-20px;animation-delay:.9s;}
+#documentPage .c4{background:#FFD700;left:55%;top:-20px;animation-delay:.3s;}
+#documentPage .c5{background:#ef4444;left:70%;top:-20px;animation-delay:1.2s;}
+#documentPage .c6{background:#16a34a;left:80%;top:-20px;animation-delay:.7s;}
+#documentPage .c7{background:#3b82f6;left:50%;top:-20px;animation-delay:1.5s;}
+#documentPage .c8{background:#FFD700;left:35%;top:-20px;animation-delay:1.8s;}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+}
+
+@keyframes successPop{
+    0%{
+        transform:scale(0);
+    }
+    60%{
+        transform:scale(1.15);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+#documentPage .custom-file-upload{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#documentPage .custom-file-upload input[type="file"]{
+    position:absolute;
+    width:1px;
+    height:1px;
+    opacity:0;
+    pointer-events:none;
+}
+
+#documentPage .choose-file-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    min-height:48px;
+    margin:0;
+    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+    background:#16a34a;
+    color:#fff;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    transition:background .2s ease,
+               transform .2s ease;
+}
+
+#documentPage .choose-file-btn:active{
+    background:#15803d;
+    transform:scale(.98);
+}
+
+#documentPage .selected-file-name{
+    width:100%;
+    margin-top:12px;
+    color:#555;
+    font-size:13px;
+    line-height:1.4;
+    text-align:center;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+#documentPage .step-note{
+    margin-top:2px;
+    padding:12px 10px;
+    background:#f0fff4;
+    border:1px solid #bbf7d0;
+    border-radius:12px;
+    color:#166534;
+    font-size:12px;
+    line-height:1.4;
+    text-align:center;
+}
+#documentPage .upload-note{
+    margin:-5px 0 12px;
+    font-size:13px;
+    color:#666;
+    line-height:1.5;
+}
+/* ===== verification.html ===== */
+
+#verificationPage *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,Arial,sans-serif;
+}
+
+#verificationPage, #verificationPage{
+    width:100%;
+    min-height:100%;
+}
+
+#verificationPage{
+    min-height:100vh;
+    background:#16a34a;
+    overflow-x:hidden;
+}
+
+#verificationPage .verification-page{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* TOP SECTION */
+
+#verificationPage .top-area{
+    height:40vh;
+    min-height:280px;
+    background:linear-gradient(160deg,#22c55e,#15803d);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    padding:20px;
+}
+
+#verificationPage .top-image-box{
+    width:300px;
+    height:300px;
+}
+
+#verificationPage .top-image-box img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+#verificationPage .logo{
+    font-size:34px;
+    font-weight:900;
+    letter-spacing:1px;
+    margin-bottom:6px;
+}
+
+#verificationPage .top-title{
+    font-size:20px;
+    font-weight:800;
+    margin-bottom:7px;
+}
+
+#verificationPage .top-subtitle{
+    max-width:320px;
+    font-size:13px;
+    line-height:1.5;
+    color:rgba(255,255,255,.85);
+}
+
+/* BIKE ANIMATION */
+
+#verificationPage .bike-road{
+    width:210px;
+    height:65px;
+    margin-top:24px;
+    position:relative;
+    overflow:hidden;
+}
+
+#verificationPage .bike{
+    position:absolute;
+    left:50%;
+    bottom:15px;
+    transform:translateX(-50%);
+    font-size:43px;
+    line-height:1;
+    animation:bikeMove 1.5s ease-in-out infinite;
+    will-change:transform;
+}
+
+#verificationPage .road{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:7px;
+    height:3px;
+    border-radius:20px;
+    background:rgba(255,255,255,.65);
+}
+#verificationPage .tick-loop{
+    animation:tickPulse 1.4s infinite;
+}
+
+@keyframes tickPulse{
+
+    0%,100%{
+        transform:scale(1);
+        box-shadow:0 0 0 0 rgba(22,163,74,.35);
+    }
+
+    50%{
+        transform:scale(1.18);
+        box-shadow:0 0 0 18px rgba(22,163,74,0);
+    }
+}
+
+
+/* BOTTOM SHEET */
+
+#verificationPage .status-sheet{
+    width:100%;
+    min-height:64vh;
+    margin-top:-36px;
+    padding:18px 22px 30px;
+    background:#fff;
+    border-radius:34px 34px 0 0;
+    position:relative;
+    z-index:5;
+    box-shadow:0 -12px 35px rgba(0,0,0,.15);
+    text-align:center;
+}
+
+#verificationPage .sheet-handle{
+    width:46px;
+    height:5px;
+    margin:0 auto 22px;
+    border-radius:20px;
+    background:#d1d5db;
+}
+
+/* STATUS ICON */
+
+#verificationPage .status-icon-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:16px;
+}
+
+#verificationPage .status-icon{
+    width:92px;
+    height:92px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    font-weight:900;
+    animation:iconPop .45s ease;
+}
+
+@keyframes iconPop{
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+#verificationPage .pending{
+    background:#e0f2fe;
+    color:#0284c7;
+    box-shadow:0 0 0 14px rgba(2,132,199,.10);
+}
+#verificationPage .rejected{
+    background:#fee2e2;
+    color:#dc2626;
+    box-shadow:0 0 0 14px rgba(220,38,38,.08);
+}
+
+#verificationPage .approved{
+    background:#dcfce7;
+    color:#16a34a;
+    box-shadow:0 0 0 14px rgba(22,163,74,.08);
+}
+
+/* STATUS TEXT */
+
+#verificationPage .status-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:30px;
+    padding:6px 14px;
+    border-radius:30px;
+
+    background:#fff7ed;
+    color:#ea580c;
+    border:1px solid #fed7aa;
+
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    margin-bottom:13px;
+}
+
+#verificationPage .status-sheet h1{
+    color:#111827;
+    font-size:25px;
+    line-height:1.25;
+    margin-bottom:10px;
+}
+
+#verificationPage .message{
+    max-width:350px;
+    margin:0 auto 22px;
+    color:#64748b;
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* LOADING DOTS */
+
+#verificationPage .review-progress{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    margin-bottom:22px;
+}
+
+#verificationPage .progress-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#16a34a;
+    animation:dotPulse 1.2s ease-in-out infinite;
+}
+
+#verificationPage .progress-dot:nth-child(2){
+    animation-delay:.18s;
+}
+
+#verificationPage .progress-dot:nth-child(3){
+    animation-delay:.36s;
+}
+
+@keyframes dotPulse{
+    0%,100%{
+        opacity:.25;
+        transform:scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.25);
+    }
+}
+
+/* DETAILS */
+
+#verificationPage .application-info{
+    width:100%;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:3px 16px;
+    text-align:left;
+}
+
+#verificationPage .info-row{
+    min-height:54px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+#verificationPage .info-row:last-child{
+    border-bottom:none;
+}
+
+#verificationPage .info-label{
+    color:#64748b;
+    font-size:13px;
+    font-weight:600;
+}
+
+#verificationPage .info-value{
+    color:#111827;
+    font-size:14px;
+    font-weight:800;
+    text-align:right;
+    overflow-wrap:anywhere;
+}
+
+/* BUTTONS */
+
+#verificationPage .action-btn{
+    width:100%;
+    height:50px;
+    margin-top:18px;
+    border:none;
+    border-radius:14px;
+    background:#16a34a;
+    color:#fff;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+    display:none;
+}
+
+#verificationPage .logout-btn{
+    width:100%;
+    height:46px;
+    margin-top:12px;
+    border:none;
+    border-radius:14px;
+    background:#f1f5f9;
+    color:#475569;
+    font-size:14px;
+    font-weight:750;
+    cursor:pointer;
+    display:none;
+}
+
+#verificationPage .action-btn:active, #verificationPage .logout-btn:active{
+    transform:scale(.98);
+}
+
+#verificationPage .support-text{
+    margin-top:17px;
+    color:#94a3b8;
+    font-size:12px;
+    line-height:1.5;
+}
+/* ===== order.html ===== */
+
+
+#orderPage *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,sans-serif;
+}
+
+#orderPage{
+    --safe-top:env(safe-area-inset-top,0px);
+    --safe-right:env(safe-area-inset-right,0px);
+    --safe-bottom:env(safe-area-inset-bottom,0px);
+    --safe-left:env(safe-area-inset-left,0px);
+
+    --green:#16a34a;
+    --green-dark:#15803d;
+    --page:#f5f6f8;
+    --text:#111827;
+    --muted:#6b7280;
+    --line:#e5e7eb;
+}
+
+#orderPage, #orderPage{
+    width:100%;
+    min-height:100%;
+    background:var(--page);
+    overflow-x:hidden;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+#orderPage .navbar{
+    width:100%;
+    height:calc(88px + var(--safe-top));
+
+    padding:
+        calc(var(--safe-top) + 20px)
+        20px
+        0
+        30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+
+    background:#fff;
+    border-bottom:1px solid #ececec;
+    box-shadow:0 4px 18px rgba(0,0,0,.05);
+}
+
+#orderPage .logo{
+    font-family:"Bungee",sans-serif;
+    font-size:28px;
+    color:var(--green);
+    letter-spacing:.5px;
+}
+
+#orderPage .profileBtn{
+    border:none;
+    background:transparent;
+    padding:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+}
+
+#orderPage .profileBtn i{
+    font-size:24px;
+    color:#374151;
+}
+
+#orderPage .profileBtn:hover i{
+    color:#111827;
+}
+
+#orderPage .main{
+    min-height:100vh;
+    padding:
+        calc(112px + var(--safe-top))
+        16px
+        calc(30px + var(--safe-bottom));
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#orderPage .main.duty-active{
+    display:block;
+}
+
+#orderPage .dutyOrdersSection{
+    display:none;
+    width:100%;
+}
+
+#orderPage .main.duty-active .dutyOrdersSection{
+    display:block;
+}
+
+#orderPage .ordersHeader{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:14px;
+    text-align:center;
+}
+
+#orderPage .ordersHeader > div{
+    width:100%;
+}
+
+#orderPage .refreshOrdersBtn{
+    position:absolute;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+#orderPage .ordersHeader h1{
+    font-size:21px;
+    font-weight:800;
+    color:var(--text);
+}
+
+#orderPage .ordersHeader p{
+    margin-top:4px;
+    color:var(--muted);
+    font-size:11px;
+}
+
+#orderPage .refreshOrdersBtn{
+    width:42px;
+    height:42px;
+    flex-shrink:0;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:#fff;
+    color:#374151;
+    cursor:pointer;
+}
+
+#orderPage .refreshOrdersBtn.loading i{
+    animation:orderSpin .7s linear infinite;
+}
+
+@keyframes orderSpin{
+    to{transform:rotate(360deg);}
+}
+
+#orderPage .ordersCountText{
+    margin-bottom:12px;
+    color:var(--muted);
+    font-size:12px;
+    font-weight:700;
+}#orderPage .ordersCountText{
+    display:none !important;
+}
+
+#orderPage .availableOrdersList{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+}
+
+
+#orderPage .searchingOrders{
+    width:100%;
+    min-height:65vh;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+}
+
+#orderPage .searchingIcon{
+    font-size:46px;
+    color:#16a34a;
+
+    margin-bottom:18px;
+
+    animation:searchScan 2s ease-in-out infinite;
+    transform-origin:center;
+}
+
+@keyframes searchScan{
+
+    0%{
+        transform:
+            translate(-18px,-8px)
+            rotate(-18deg);
+    }
+
+    20%{
+        transform:
+            translate(18px,-8px)
+            rotate(18deg);
+    }
+
+    40%{
+        transform:
+            translate(18px,8px)
+            rotate(18deg);
+    }
+
+    60%{
+        transform:
+            translate(-18px,8px)
+            rotate(-18deg);
+    }
+
+    80%{
+        transform:
+            translate(0,0)
+            rotate(0deg);
+    }
+
+    100%{
+        transform:
+            translate(-18px,-8px)
+            rotate(-18deg);
+    }
+}
+
+#orderPage .searchingOrders h3{
+    margin:0 0 8px;
+    font-size:20px;
+    font-weight:800;
+    color:#111827;
+}
+
+#orderPage .searchingOrders p{
+    max-width:270px;
+    color:#6b7280;
+    font-size:13px;
+    line-height:1.6;
+}
+#orderPage .ordersShimmer{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+#orderPage .shimmerCard{
+    background:transparent;
+    border:none;
+    border-radius:0;
+    padding:0;
+    overflow:visible;
+}
+
+#orderPage .shimmer{
+    position:relative;
+    overflow:hidden;
+    background:#fce7f3;
+    border-radius:10px;
+}
+
+#orderPage .shimmer::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    transform:translateX(-100%);
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.85),
+        transparent
+    );
+    animation:pinkShimmer 1.2s infinite;
+}
+
+@keyframes pinkShimmer{
+    100%{
+        transform:translateX(100%);
+    }
+}
+
+#orderPage .shimmerTitle{
+    width:45%;
+    height:18px;
+    margin-bottom:18px;
+}
+
+#orderPage .shimmerRow{
+    width:100%;
+    height:14px;
+    margin-bottom:12px;
+}
+
+#orderPage .shimmerRow.small{
+    width:55%;
+}
+
+#orderPage .shimmerBox{
+    width:100%;
+    height:70px;
+    margin-top:12px;
+    border-radius:14px;
+}
+#orderPage .orderCard{
+    padding:0;
+    border:none;
+    border-top:1px solid #e5e7eb;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
+    padding-top:16px;
+}
+#orderPage .orderGrid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+    margin-bottom:12px;
+}
+
+#orderPage .orderBox{
+    min-height:80px;
+    padding:11px;
+    border-radius:13px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background:#f7f8fa;
+}
+
+#orderPage .orderBox.amount{
+    background:#effcf3;
+}
+
+#orderPage .orderBox i{
+    margin-bottom:7px;
+    color:var(--green);
+    font-size:16px;
+}
+
+#orderPage .orderLabel{
+    margin-bottom:4px;
+    color:#8b9098;
+    font-size:9px;
+    font-weight:700;
+}
+
+#orderPage .orderValue{
+    color:#111827;
+    font-size:16px;
+    font-weight:800;
+    overflow-wrap:anywhere;
+}
+
+#orderPage .orderBox.amount .orderValue{
+    color:#12813c;
+    font-size:20px;
+}
+
+#orderPage .orderMapBtn{
+    width:100%;
+    height:44px;
+    margin-bottom:10px;
+    border:1px solid #dfe3e8;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:#fff;
+    color:#242830;
+    font-size:12px;
+    font-weight:800;
+    text-decoration:none;
+}
+
+#orderPage .orderMapBtn.disabled{
+    opacity:.5;
+    pointer-events:none;
+}
+
+#orderPage .orderActionBtn{
+    width:100%;
+    height:48px;
+    border:none;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    color:#fff;
+    background:var(--green);
+    font-size:13px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+#orderPage .orderActionBtn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+#orderPage .orderActionBtn.pickup{
+    background:#facc15;
+    color:#3f2d00;
+}
+
+#orderPage .orderActionBtn.way{
+    background:#f97316;
+}
+
+#orderPage .orderActionBtn.delivered{
+    background:#16a34a;
+}
+
+
+#orderPage .orderTopBar{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:13px;
+}
+
+#orderPage .orderIdentity{
+    min-width:0;
+}
+
+#orderPage .orderIdentity span{
+    display:block;
+    margin-bottom:4px;
+    color:#8b9098;
+    font-size:9px;
+    font-weight:700;
+}
+
+#orderPage .orderIdentity strong{
+    display:block;
+    color:#111827;
+    font-size:13px;
+    font-weight:800;
+    overflow-wrap:anywhere;
+}
+
+#orderPage .paymentBadge{
+    flex-shrink:0;
+    padding:6px 10px;
+    border-radius:999px;
+    color:#fff;
+    font-size:10px;
+    font-weight:800;
+}
+
+#orderPage .paymentBadge.cash{
+    background:#dc2626;
+}
+
+#orderPage .paymentBadge.upi{
+    background:#1677ff;
+}
+
+#orderPage .customerStrip{
+    margin-bottom:12px;
+    padding:12px;
+    border-radius:13px;
+    background:#f7f8fa;
+}
+
+#orderPage .customerStrip span{
+    display:block;
+    margin-bottom:4px;
+    color:#8b9098;
+    font-size:9px;
+    font-weight:700;
+}
+
+#orderPage .customerStrip strong{
+    display:block;
+    color:#111827;
+    font-size:13px;
+    font-weight:800;
+}
+
+#orderPage .productsPanel{
+    margin-bottom:12px;
+    padding:13px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:#fff;
+}
+
+#orderPage .productsTitle{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:10px;
+    color:#111827;
+    font-size:12px;
+    font-weight:800;
+}
+
+#orderPage .productsTitle i{
+    color:var(--green);
+}
+
+#orderPage .productRows{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+#orderPage .productRow{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:12px;
+    align-items:center;
+    padding-bottom:9px;
+    border-bottom:1px solid #f0f1f3;
+}
+
+#orderPage .productRow:last-child{
+    padding-bottom:0;
+    border-bottom:none;
+}
+
+
+#orderPage .productMain{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:0;
+}
+
+#orderPage .productImage{
+    width:52px;
+    height:52px;
+    flex-shrink:0;
+    border-radius:10px;
+    overflow:hidden;
+    background:#f3f4f6;
+    border:1px solid #eceff2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#orderPage .productImage img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+#orderPage .productImageFallback{
+    color:#9ca3af;
+    font-size:18px;
+}
+
+
+#orderPage .productName{
+    min-width:0;
+}
+
+#orderPage .productName strong{
+    display:block;
+    color:#111827;
+    font-size:12px;
+    font-weight:800;
+    overflow-wrap:anywhere;
+}
+
+#orderPage .productName span{
+    display:block;
+    margin-top:3px;
+    color:#6b7280;
+    font-size:10px;
+    font-weight:600;
+}
+
+#orderPage .productPrice{
+    color:#111827;
+    font-size:12px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+#orderPage .billPanel{
+    margin-bottom:12px;
+    padding:13px;
+    border-radius:14px;
+    background:#f8f9fa;
+}
+
+#orderPage .billRow{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:8px;
+    color:#6b7280;
+    font-size:11px;
+    font-weight:600;
+}
+
+#orderPage .billRow:last-child{
+    margin-bottom:0;
+}
+
+#orderPage .billRow strong{
+    color:#111827;
+    font-size:12px;
+}
+
+#orderPage .billRow.total{
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px dashed #d1d5db;
+    color:#111827;
+    font-size:13px;
+    font-weight:800;
+}
+
+#orderPage .billRow.total strong{
+    color:#12813c;
+    font-size:17px;
+}
+
+
+@media (max-width:360px){
+    #orderPage .orderGrid{
+        grid-template-columns:1fr;
+    }
+}
+
+#orderPage .startBtn{
+
+    width:220px;
+    height:56px;
+
+    border:none;
+    border-radius:16px;
+
+    background:#16a34a;
+    color:#fff;
+
+    font-size:16px;
+    font-weight:700;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    cursor:pointer;
+
+    box-shadow:0 12px 28px rgba(22,163,74,.28);
+
+    transition:.25s;
+}
+
+#orderPage .startBtn:active{
+    transform:scale(.97);
+}
+
+#orderPage .startBtn i{
+    font-size:16px;
+}
+
+/* =========================
+   PROFILE OVERLAY
+========================= */
+
+#orderPage .profileOverlay{
+    position:fixed;
+    inset:0;
+    z-index:3000;
+
+    background:rgba(0,0,0,.42);
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+}
+
+#orderPage .profileOverlay.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+/* =========================
+   PROFILE DRAWER
+========================= */
+
+#orderPage .profileDrawer{
+    position:absolute;
+    top:0;
+    right:0;
+
+    width:min(88%,380px);
+    height:100dvh;
+
+   padding:
+        calc(32px + var(--safe-top))
+        calc(18px + var(--safe-right))
+        calc(18px + var(--safe-bottom))
+        18px;
+
+    display:flex;
+    flex-direction:column;
+
+    background:#fff;
+    box-shadow:-15px 0 40px rgba(0,0,0,.18);
+
+    transform:translateX(105%);
+
+    transition:
+        transform .32s cubic-bezier(.22,.8,.32,1);
+
+    overflow-y:auto;
+}
+
+#orderPage .profileOverlay.open .profileDrawer{
+    transform:translateX(0);
+}
+
+/* =========================
+   DRAWER HEADER
+========================= */
+
+#orderPage .profileDrawerHeader{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:20px;
+}
+
+#orderPage .profileDrawerTitle{
+    font-size:18px;
+    font-weight:800;
+    color:var(--text);
+}
+
+#orderPage .closeProfileBtn{
+    width:36px;
+    height:36px;
+
+    border:none;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#f3f4f6;
+    color:#374151;
+
+    font-size:15px;
+    cursor:pointer;
+}
+
+/* =========================
+   USER CARD
+========================= */
+
+#orderPage .profileUserCard{
+    padding:16px;
+
+    display:flex;
+    align-items:center;
+    gap:13px;
+
+    border-radius:18px;
+    background:#f7f8fa;
+
+    margin-bottom:13px;
+}
+
+#orderPage .profileUserIcon{
+    width:52px;
+    height:52px;
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#dcfce7;
+    color:var(--green-dark);
+
+    font-size:21px;
+}
+
+#orderPage .profileUserDetails{
+    min-width:0;
+}
+
+#orderPage .profileUserDetails h2{
+    margin-bottom:5px;
+
+    font-size:16px;
+    font-weight:800;
+    color:var(--text);
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+#orderPage .profileUserDetails p{
+    color:var(--muted);
+    font-size:12px;
+    font-weight:500;
+}
+
+/* =========================
+   EARNINGS CARD
+========================= */
+#orderPage .customerMobileStrip{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+
+#orderPage .customerMobileStrip > div{
+    min-width:0;
+}
+
+#orderPage .customerCallBtn{
+    min-width:82px;
+    height:40px;
+    padding:0 14px;
+
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+
+    background:#16a34a;
+    color:#fff;
+
+    font-size:12px;
+    font-weight:800;
+    text-decoration:none;
+
+    flex-shrink:0;
+}
+
+#orderPage .customerCallBtn:active{
+    transform:scale(.96);
+}
+#orderPage .earningsCard{
+    padding:17px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #16a34a,
+            #22c55e
+        );
+
+    color:#fff;
+
+    margin-bottom:16px;
+}
+
+#orderPage .earningsLeft span{
+    display:block;
+
+    margin-bottom:6px;
+
+    font-size:11px;
+    font-weight:600;
+
+    opacity:.85;
+}
+
+#orderPage .earningsLeft strong{
+    font-size:24px;
+    font-weight:800;
+}
+
+#orderPage .earningsIcon{
+    width:46px;
+    height:46px;
+
+    border-radius:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(255,255,255,.17);
+
+    font-size:20px;
+}
+
+/* =========================
+   PROFILE MENU
+========================= */
+
+#orderPage .profileMenu{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+#orderPage .profileMenuItem{
+    width:100%;
+    min-height:52px;
+
+    padding:0 14px;
+
+    border:none;
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+    gap:13px;
+
+    background:#f8f9fa;
+    color:var(--text);
+
+    text-align:left;
+    cursor:pointer;
+}
+#orderPage .billRow.earningTotal{
+    margin-top:12px;
+    padding:12px;
+    border-radius:12px;
+    background:#ecfdf3;
+    color:#15803d;
+    font-size:13px;
+    font-weight:800;
+}
+
+#orderPage .billRow.earningTotal strong{
+    color:#15803d;
+    font-size:18px;
+}
+#orderPage .profileMenuIcon{
+    width:34px;
+    height:34px;
+    flex-shrink:0;
+
+    border-radius:10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#eefcf3;
+    color:var(--green);
+
+    font-size:14px;
+}
+
+#orderPage .profileMenuText{
+    flex:1;
+    font-size:13px;
+    font-weight:700;
+}
+
+#orderPage .profileMenuArrow{
+    color:#9ca3af;
+    font-size:11px;
+}
+
+#orderPage .profileMenuItem:active{
+    transform:scale(.985);
+}
+
+/* =========================
+   LOGOUT
+========================= */
+
+#orderPage .profileLogoutWrap{
+    margin-top:auto;
+    padding-top:20px;
+}
+
+#orderPage .logoutBtn{
+    width:100%;
+    height:50px;
+
+    border:none;
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+
+    background:#fee2e2;
+    color:#dc2626;
+
+    font-size:13px;
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+#orderPage .logoutBtn:active{
+    transform:scale(.985);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:700px){
+
+    #orderPage .navbar{
+        padding:
+            var(--safe-top)
+            calc(20px + var(--safe-right))
+            0
+            calc(20px + var(--safe-left));
+    }
+
+    #orderPage .logo{
+        font-size:24px;
+    }
+
+    #orderPage .profileDrawer{
+        width:88%;
+    }
+}
+#orderPage .dutyTimer{
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+
+    margin-left:auto;
+    margin-right:18px;
+}
+
+#orderPage .dutyTimerRow{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    color:#16a34a;
+    font-size:14px;
+    font-weight:800;
+}
+
+#orderPage .dutyTimerRow i{
+    font-size:14px;
+}
+
+#orderPage .endDutyBtn{
+    border:none;
+    background:transparent;
+    padding:0;
+
+    color:#dc2626;
+    font-size:10px;
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+#orderPage .endDutyBtn:active{
+    transform:scale(.95);
+}
+/* =========================================
+   DELIVERY PROOF SHEET
+========================================= */
+
+#orderPage .deliveryProofOverlay, #orderPage .deliveryEarningOverlay{
+    position:fixed;
+    inset:0;
+    z-index:5000;
+
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+
+    padding-top:var(--safe-top);
+
+    background:rgba(0,0,0,.48);
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+}
+
+#orderPage .deliveryProofOverlay.open, #orderPage .deliveryEarningOverlay.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+#orderPage .deliveryProofSheet, #orderPage .deliveryEarningSheet{
+    width:100%;
+    max-width:540px;
+
+    padding:
+        10px
+        18px
+        calc(20px + var(--safe-bottom));
+
+    border-radius:26px 26px 0 0;
+
+    background:#fff;
+
+    transform:translateY(105%);
+
+    transition:
+        transform .32s cubic-bezier(.22,.8,.32,1);
+}
+
+#orderPage .deliveryProofOverlay.open .deliveryProofSheet, #orderPage .deliveryEarningOverlay.open .deliveryEarningSheet{
+    transform:translateY(0);
+}
+
+#orderPage .proofHandle{
+    width:42px;
+    height:5px;
+
+    margin:0 auto 17px;
+
+    border-radius:999px;
+    background:#d1d5db;
+}
+
+#orderPage .proofHeader{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+
+    margin-bottom:18px;
+}
+
+#orderPage .proofHeader h2{
+    margin-bottom:5px;
+
+    color:#111827;
+    font-size:19px;
+    font-weight:800;
+}
+
+#orderPage .proofHeader p{
+    color:#6b7280;
+    font-size:12px;
+}
+
+#orderPage .proofCloseBtn{
+    width:36px;
+    height:36px;
+    flex-shrink:0;
+
+    border:none;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#f3f4f6;
+    color:#374151;
+
+    cursor:pointer;
+}
+
+#orderPage .deliveryProofUpload{
+    width:100%;
+    min-height:210px;
+
+    margin-bottom:16px;
+
+    border:2px dashed #bbf7d0;
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:#f0fdf4;
+    cursor:pointer;
+}
+
+#orderPage .deliveryProofPlaceholder{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+
+    text-align:center;
+}
+
+#orderPage .deliveryProofPlaceholder i{
+    width:54px;
+    height:54px;
+
+    border-radius:17px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#dcfce7;
+    color:#16a34a;
+
+    font-size:21px;
+}
+
+#orderPage .deliveryProofPlaceholder strong{
+    color:#111827;
+    font-size:14px;
+    font-weight:800;
+}
+
+#orderPage .deliveryProofPlaceholder span{
+    color:#6b7280;
+    font-size:11px;
+}
+
+#orderPage .deliveryProofPreview{
+    display:none;
+
+    width:100%;
+    height:250px;
+
+    object-fit:cover;
+}
+
+#orderPage .submitDeliveryProofBtn{
+    width:100%;
+    height:52px;
+
+    border:none;
+    border-radius:15px;
+
+    background:#16a34a;
+    color:#fff;
+
+    font-size:14px;
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+#orderPage .submitDeliveryProofBtn:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+}
+
+
+/* =========================================
+   COMPLETED EARNING SHEET
+========================================= */
+
+#orderPage .deliveryEarningSheet{
+    padding-top:30px;
+    padding-bottom:calc(34px + var(--safe-bottom));
+
+    text-align:center;
+}
+
+#orderPage .earningSuccessIcon{
+    width:68px;
+    height:68px;
+
+    margin:0 auto 16px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#dcfce7;
+    color:#16a34a;
+
+    font-size:27px;
+}
+
+#orderPage .deliveryEarningSheet > span{
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#16a34a;
+    font-size:12px;
+    font-weight:800;
+}
+
+#orderPage .deliveryEarningSheet h2{
+    margin-bottom:6px;
+
+    color:#111827;
+    font-size:17px;
+    font-weight:800;
+}
+
+#orderPage .deliveryEarningSheet > strong{
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#16a34a;
+    font-size:34px;
+    font-weight:800;
+}
+
+#orderPage .deliveryEarningSheet p{
+    color:#6b7280;
+    font-size:12px;
+}
+/* =========================================
+   TERMS & POLICY FULL PAGE
+========================================= */
+
+#orderPage .policyPage{
+    position:fixed;
+    inset:0;
+    z-index:6000;
+
+    width:100%;
+    height:100dvh;
+
+    background:#f5f6f8;
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transform:translateX(100%);
+
+    transition:
+        transform .32s cubic-bezier(.22,.8,.32,1),
+        opacity .2s ease,
+        visibility .2s ease;
+
+    overflow:hidden;
+}
+
+#orderPage .policyPage.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateX(0);
+}
+
+#orderPage .policyHeader{
+    width:100%;
+    height:calc(72px + var(--safe-top));
+
+    padding:
+        var(--safe-top)
+        calc(16px + var(--safe-right))
+        0
+        calc(16px + var(--safe-left));
+
+    display:grid;
+    grid-template-columns:44px 1fr 44px;
+    align-items:center;
+
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:2;
+
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+}
+
+#orderPage .policyHeader h1{
+    text-align:center;
+    color:#111827;
+    font-size:17px;
+    font-weight:800;
+}
+
+#orderPage .policyBackBtn{
+    width:40px;
+    height:40px;
+
+    border:none;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#f3f4f6;
+    color:#111827;
+
+    font-size:15px;
+    cursor:pointer;
+}
+
+#orderPage .policyBackBtn:active{
+    transform:scale(.94);
+}
+
+#orderPage .policyHeaderSpace{
+    width:40px;
+}
+
+#orderPage .policyContent{
+    width:100%;
+    height:100%;
+    overflow-y:auto;
+
+    padding:
+        calc(88px + var(--safe-top))
+        20px
+        calc(30px + var(--safe-bottom));
+}
+
+#orderPage .policyContent h2{
+    margin-bottom:18px;
+
+    color:#111827;
+    font-size:20px;
+    font-weight:800;
+}
+
+#orderPage .policyList{
+    margin:0;
+    padding-left:22px;
+
+    color:#374151;
+}
+
+#orderPage .policyList li{
+    margin-bottom:16px;
+
+    font-size:14px;
+    line-height:1.8;
+}
+
+
+/* =========================================
+   LIVE CUSTOMER ORDER STATUS ALERT
+========================================= */
+#orderPage .orderCancelledOverlay{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(127,0,0,.72);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .18s ease,visibility .18s ease;
+}
+#orderPage .orderCancelledOverlay.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+#orderPage .orderCancelledCard{
+    width:min(100%,390px);
+    padding:30px 22px 22px;
+    border-radius:24px;
+    background:#fff;
+    text-align:center;
+    box-shadow:0 24px 70px rgba(0,0,0,.32);
+    transform:scale(.94);
+    transition:transform .18s ease;
+}
+#orderPage .orderCancelledOverlay.open .orderCancelledCard{
+    transform:scale(1);
+}
+#orderPage .orderCancelledIcon{
+    width:76px;
+    height:76px;
+    margin:0 auto 17px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fee2e2;
+    color:#dc2626;
+    font-size:34px;
+}
+#orderPage .orderCancelledCard h2{
+    color:#b91c1c;
+    font-size:23px;
+    font-weight:800;
+}
+#orderPage .orderCancelledCard p{
+    margin-top:9px;
+    color:#4b5563;
+    font-size:13px;
+    line-height:1.6;
+}
+#orderPage .orderCancelledOrderId{
+    display:block;
+    margin-top:13px;
+    padding:10px 12px;
+    border-radius:12px;
+    background:#fff1f2;
+    color:#be123c;
+    font-size:12px;
+    font-weight:800;
+    overflow-wrap:anywhere;
+}
+#orderPage .orderCancelledOkBtn{
+    width:100%;
+    height:52px;
+    margin-top:20px;
+    border:none;
+    border-radius:15px;
+    background:#dc2626;
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+}
+#orderPage .orderCancelledOkBtn:active{
+    transform:scale(.98);
+}
+
+
+/* =========================================
+   COD PAYMENT COLLECTION FLOW
+========================================= */
+#orderPage .codPaymentOverlay{
+    position:fixed;
+    inset:0;
+    z-index:9500;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    padding-top:var(--safe-top);
+    background:rgba(15,23,42,.58);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .22s ease,visibility .22s ease;
+}
+#orderPage .codPaymentOverlay.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+#orderPage .codPaymentSheet{
+    width:100%;
+    max-width:540px;
+    max-height:92dvh;
+    overflow-y:auto;
+    padding:10px 18px calc(22px + var(--safe-bottom));
+    border-radius:28px 28px 0 0;
+    background:#fff;
+    transform:translateY(105%);
+    transition:transform .32s cubic-bezier(.22,.8,.32,1);
+}
+#orderPage .codPaymentOverlay.open .codPaymentSheet{
+    transform:translateY(0);
+}
+#orderPage .codPaymentHandle{
+    width:42px;
+    height:5px;
+    margin:0 auto 18px;
+    border-radius:999px;
+    background:#d1d5db;
+}
+#orderPage .codPaymentHeader{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:18px;
+}
+#orderPage .codPaymentHeader h2{
+    color:#111827;
+    font-size:20px;
+    font-weight:800;
+}
+#orderPage .codPaymentHeader p{
+    margin-top:5px;
+    color:#6b7280;
+    font-size:12px;
+    line-height:1.5;
+}
+#orderPage .codPaymentClose{
+    width:38px;
+    height:38px;
+    flex-shrink:0;
+    border:none;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f3f4f6;
+    color:#374151;
+    cursor:pointer;
+}
+#orderPage .codAmountCard{
+    margin-bottom:16px;
+    padding:17px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background:linear-gradient(135deg,#ecfdf3,#dcfce7);
+    border:1px solid #bbf7d0;
+}
+#orderPage .codAmountCard span{
+    color:#15803d;
+    font-size:12px;
+    font-weight:700;
+}
+#orderPage .codAmountCard strong{
+    color:#15803d;
+    font-size:27px;
+    font-weight:900;
+}
+#orderPage .codPaymentStep{
+    display:none;
+}
+#orderPage .codPaymentStep.active{
+    display:block;
+}
+#orderPage .codMethodTitle{
+    margin-bottom:11px;
+    color:#374151;
+    font-size:12px;
+    font-weight:800;
+}
+#orderPage .codMethodGrid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:11px;
+}
+#orderPage .codMethodBtn{
+    min-height:128px;
+    padding:16px 12px;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:#fff;
+    color:#111827;
+    cursor:pointer;
+    box-shadow:0 8px 22px rgba(15,23,42,.06);
+}
+#orderPage .codMethodBtn:active{
+    transform:scale(.98);
+}
+#orderPage .codMethodIcon{
+    width:48px;
+    height:48px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+#orderPage .codMethodBtn.qr .codMethodIcon{
+    background:#e0e7ff;
+    color:#4f46e5;
+}
+#orderPage .codMethodBtn.phone .codMethodIcon{
+    background:#dcfce7;
+    color:#16a34a;
+}
+#orderPage .codMethodBtn strong{
+    font-size:13px;
+    font-weight:800;
+}
+#orderPage .codMethodBtn span{
+    color:#6b7280;
+    font-size:10px;
+    line-height:1.4;
+    text-align:center;
+}
+#orderPage .codQrLoading{
+    min-height:310px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:13px;
+    color:#6b7280;
+    text-align:center;
+}
+#orderPage .codQrLoading i{
+    color:#4f46e5;
+    font-size:31px;
+}
+#orderPage .codQrBox{
+    width:min(100%,275px);
+    aspect-ratio:1;
+    margin:4px auto 14px;
+    padding:13px;
+    border:2px solid #e5e7eb;
+    border-radius:22px;
+    background:#fff;
+    box-shadow:0 14px 34px rgba(15,23,42,.10);
+}
+#orderPage .codQrBox img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:contain;
+    border-radius:10px;
+}
+#orderPage .codQrInstruction{
+    text-align:center;
+}
+#orderPage .codQrInstruction strong{
+    display:block;
+    color:#111827;
+    font-size:15px;
+}
+#orderPage .codQrInstruction span{
+    display:block;
+    margin-top:5px;
+    color:#6b7280;
+    font-size:11px;
+    line-height:1.5;
+}
+#orderPage .codPaymentStatus{
+    margin-top:15px;
+    padding:13px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+}
+#orderPage .codStatusIcon{
+    width:37px;
+    height:37px;
+    flex-shrink:0;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eef2ff;
+    color:#4f46e5;
+}
+#orderPage .codStatusText strong{
+    display:block;
+    color:#111827;
+    font-size:12px;
+}
+#orderPage .codStatusText span{
+    display:block;
+    margin-top:3px;
+    color:#6b7280;
+    font-size:10px;
+}
+#orderPage .codChangeMethodBtn, #orderPage .codShareQrBtn{
+    width:100%;
+    height:48px;
+    margin-top:11px;
+    border:none;
+    border-radius:14px;
+    font-size:12px;
+    font-weight:800;
+    cursor:pointer;
+}
+#orderPage .codShareQrBtn{
+    background:#16a34a;
+    color:#fff;
+}
+
+#orderPage .codShareQrBtn:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+}
+#orderPage .codChangeMethodBtn{
+    background:#f3f4f6;
+    color:#374151;
+}
+#orderPage .codPaymentSuccess{
+    min-height:330px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+#orderPage .codPaymentSuccessIcon{
+    width:76px;
+    height:76px;
+    margin-bottom:16px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#dcfce7;
+    color:#16a34a;
+    font-size:31px;
+}
+#orderPage .codPaymentSuccess h3{
+    color:#111827;
+    font-size:22px;
+    font-weight:800;
+}
+#orderPage .codPaymentSuccess p{
+    max-width:300px;
+    margin-top:8px;
+    color:#6b7280;
+    font-size:12px;
+    line-height:1.6;
+}
+#orderPage .codContinueProofBtn{
+    width:100%;
+    height:52px;
+    margin-top:20px;
+    border:none;
+    border-radius:15px;
+    background:#16a34a;
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+}
+#orderPage .codPaymentError{
+    display:none;
+    margin-top:12px;
+    padding:11px 12px;
+    border-radius:12px;
+    background:#fff1f2;
+    border:1px solid #fecdd3;
+    color:#be123c;
+    font-size:11px;
+    font-weight:700;
+    line-height:1.5;
+}
+#orderPage .codPaymentError.show{
+    display:block;
+}
+
+#orderPage .codSkipPaymentBtn{
+    width:100%;
+    height:48px;
+    margin-top:12px;
+    border:1px solid #d1d5db;
+    border-radius:14px;
+    background:#fff;
+    color:#374151;
+    font-size:12px;
+    font-weight:800;
+    cursor:pointer;
+}
+#orderPage .codSkipPaymentBtn:active{
+    transform:scale(.98);
+}
+#orderPage .codSkipPaymentBtn:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+}
+
+@media (max-width:360px){
+    #orderPage .codMethodGrid{
+        grid-template-columns:1fr;
+    }
+    #orderPage .codMethodBtn{
+        min-height:102px;
+    }
+}
+
+
+
+/* ===== SILENT LOCATION + SMOOTH ORDER SYNC ===== */
+#orderPage .locationUpdateStatus{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin:0 0 14px;
+    padding:10px 12px;
+    border:1px solid #dcfce7;
+    border-radius:13px;
+    background:#f0fdf4;
+}
+#orderPage .locationUpdateLeft{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    min-width:0;
+}
+#orderPage .locationUpdateIcon{
+    width:34px;
+    height:34px;
+    flex-shrink:0;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#dcfce7;
+    color:#16a34a;
+}
+#orderPage .locationUpdateText strong{
+    display:block;
+    color:#166534;
+    font-size:11px;
+    font-weight:800;
+}
+#orderPage .locationUpdateText span{
+    display:block;
+    margin-top:2px;
+    color:#6b7280;
+    font-size:9px;
+    font-weight:600;
+}
+#orderPage .activeOrdersLimit{
+    flex-shrink:0;
+    padding:6px 9px;
+    border-radius:999px;
+    background:#fff;
+    color:#15803d;
+    font-size:9px;
+    font-weight:800;
+}
+#orderPage .orderCard{
+    transition:opacity .2s ease,transform .2s ease;
+}
+#orderPage .orderCard.order-enter{
+    opacity:0;
+    transform:translateY(8px);
+}
+#orderPage .orderActionBtn.limitReached{
+    background:#9ca3af;
+}
+
+
+/* ===== FONT AWESOME ICON FIX =====
+   Page-wide * selectors above were overriding Font Awesome's font-family. */
+#loginPage i.fa, #loginPage i.fas, #loginPage i.fa-solid,
+#documentPage i.fa, #documentPage i.fas, #documentPage i.fa-solid,
+#verificationPage i.fa, #verificationPage i.fas, #verificationPage i.fa-solid,
+#orderPage i.fa, #orderPage i.fas, #orderPage i.fa-solid {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+    font-style: normal !important;
+}
+#loginPage i.far, #loginPage i.fa-regular,
+#documentPage i.far, #documentPage i.fa-regular,
+#verificationPage i.far, #verificationPage i.fa-regular,
+#orderPage i.far, #orderPage i.fa-regular {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+}
+#loginPage i.fab, #loginPage i.fa-brands,
+#documentPage i.fab, #documentPage i.fa-brands,
+#verificationPage i.fab, #verificationPage i.fa-brands,
+#orderPage i.fab, #orderPage i.fa-brands {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+}
+
+/* ===== HIDDEN BACKGROUND DELIVERY STATUS =====
+   GPS/location sharing and active-order logic continue in JavaScript.
+   Only the visible status UI is removed. */
+#orderPage .locationUpdateStatus,
+#orderPage #locationUpdateStatus,
+#orderPage .activeOrdersLimit,
+#orderPage #activeOrdersLimit{
+    display:none !important;
+}
+
+
+/* ===== PRODUCTS FIRST UI ===== */
+#orderPage .orderCard > .productsPanel:first-child{
+    margin-top:0;
+    margin-bottom:14px;
+    padding:14px;
+    border:1px solid #e3f4e8;
+    border-radius:16px;
+    background:#f8fff9;
+    box-shadow:0 4px 14px rgba(22,163,74,.05);
+}
+#orderPage .orderCard > .productsPanel:first-child .productsTitle{
+    margin-bottom:12px;
+    color:#15803d;
+    font-size:13px;
+    font-weight:800;
+}
+#orderPage .orderCard > .productsPanel:first-child .productRows{
+    background:#fff;
+    border-radius:13px;
+    overflow:hidden;
+}
+#orderPage .orderTopBar{
+    margin-top:0;
+}
+
+
+/* =========================================
+   CENTER ORDER LOADER — NO SHIMMER
+========================================= */
+#orderPage .ordersShimmer,
+#orderPage .shimmerCard,
+#orderPage .shimmer{
+    display:none !important;
+}
+
+#orderPage .ordersCenterLoader{
+    width:100%;
+    min-height:58vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#orderPage .ordersCenterSpinner{
+    width:34px;
+    height:34px;
+    border:3px solid #dcfce7;
+    border-top-color:#16a34a;
+    border-radius:50%;
+    animation:cezooOrdersCenterSpin .72s linear infinite;
+}
+
+@keyframes cezooOrdersCenterSpin{
+    to{transform:rotate(360deg);}
+}
+
+/* =========================================
+   NAVBAR SOS + PROFILE
+========================================= */
+#orderPage .navbarActions{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-shrink:0;
+}
+
+#orderPage .sosBtn{
+    min-width:48px;
+    height:34px;
+    padding:0 11px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #fecaca;
+    border-radius:10px;
+    background:#fff5f5;
+    color:#dc2626;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.4px;
+    cursor:pointer;
+}
+
+#orderPage .sosBtn:active{
+    transform:scale(.96);
+}
+
+#orderPage .profileBtn{
+    width:36px;
+    height:36px;
+}
+
+/* =========================================
+   END DUTY ACTIVE-ORDER MESSAGE
+========================================= */
+#orderPage .dutyGuardMessage{
+    position:fixed;
+    left:50%;
+    bottom:calc(24px + var(--safe-bottom));
+    z-index:9000;
+    width:calc(100% - 32px);
+    max-width:420px;
+    padding:13px 16px;
+    border-radius:13px;
+    background:#111827;
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    line-height:1.45;
+    text-align:center;
+    box-shadow:0 12px 30px rgba(0,0,0,.22);
+    opacity:0;
+    visibility:hidden;
+    transform:translate(-50%,16px);
+    pointer-events:none;
+    transition:
+        opacity .2s ease,
+        transform .2s ease,
+        visibility .2s ease;
+}
+
+#orderPage .dutyGuardMessage.show{
+    opacity:1;
+    visibility:visible;
+    transform:translate(-50%,0);
+}
+
+
+/* Spinner lifecycle safety: visible only while JS inserts .ordersCenterLoader */
+#orderPage .ordersCenterLoader{
+    position:relative !important;
+    inset:auto !important;
+}
+#orderPage .availableOrdersList:not(:has(.ordersCenterLoader)) .ordersCenterSpinner{
+    display:none !important;
+}
+
+</style>
+</head>
+<body>
+<section id="loginPage" class="spa-page">
+<div class="container">
+<div class="hero">
+<img alt="Banner" src="image1.jpeg"/>
+</div>
+<div class="bottom-section">
+<div id="mobileScreen">
+<div style="
+    text-align:center;
+    font-size:20px;
+    font-weight:700;
+    color:#111;
+    margin-bottom:18px;
+">
+    Enter your mobile number
+</div>
+<div class="mobile-box">
+<span class="country-code">+91</span>
+<input autocomplete="off" id="mobile" maxlength="10" placeholder="Enter mobile number" type="tel"/>
+</div>
+<button class="otp-btn" onclick="sendOTP()">
+                Get OTP
+            </button>
+<p class="terms-text">
+    By continuing, you agree to our
+    <a href="privacy.html">Privacy Policy</a>
+    &amp;
+    <a href="terms.html">Terms &amp; Conditions</a>.
+</p>
+</div>
+<div id="otpScreen" style="display:none; width:100%;">
+<div class="otp-title">
+        Enter your OTP
+    </div>
+<div class="otp-container">
+<input autocomplete="new-password" class="otp-box" id="otp1" inputmode="numeric" maxlength="1" name="otp_one_cezoo" type="text"/>
+<input autocomplete="new-password" class="otp-box" id="otp2" inputmode="numeric" maxlength="1" name="otp_two_cezoo" type="text"/>
+<input autocomplete="new-password" class="otp-box" id="otp3" inputmode="numeric" maxlength="1" name="otp_three_cezoo" type="text"/>
+<input autocomplete="new-password" class="otp-box" id="otp4" inputmode="numeric" maxlength="1" name="otp_four_cezoo" type="text"/>
+<input autocomplete="new-password" class="otp-box" id="otp5" inputmode="numeric" maxlength="1" name="otp_five_cezoo" type="text"/>
+<input autocomplete="new-password" class="otp-box" id="otp6" inputmode="numeric" maxlength="1" name="otp_six_cezoo" type="text"/>
+</div>
+<button class="otp-btn" onclick="verifyOTP()">
+                Verify OTP
+            </button>
+</div>
+</div>
+</div>
+</section>
+<section id="documentPage" class="spa-page">
+<div class="container">
+<!-- REPLACE IMAGE -->
+<div class="top-image">
+<img alt="Delivery Partner" src="image3.png"/>
+</div>
+<div class="form-wrapper">
+<div class="heading">
+<h2></h2>
+<p>Become a Delivery Partner</p>
+</div>
+<div class="progress">
+            Step <span id="stepNo">1</span> of 8
+        </div>
+<!-- STEP 1 -->
+<div class="step active">
+<label>Full Name</label>
+<input id="name" placeholder="Enter Full Name" type="text"/>
+<label>Mobile Number</label>
+<input id="mobile" placeholder="Enter Mobile Number" type="tel"/>
+<label>Gender</label>
+<select id="gender">
+<option>Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+<div class="step-note">
+        Please keep your Vehicle RC, Driving Licence, Bike Insurance,
+        Aadhaar Card and PAN Card ready before proceeding.
+    </div>
+</div>
+<!-- STEP 2 -->
+<div class="step">
+<label>Vehicle Number Photo</label>
+<p class="upload-note">
+    Upload a clear photo of your vehicle number plate.
+</p>
+<div class="custom-file-upload">
+<input accept="image/*" capture="environment" id="vehiclePhoto" onchange="showSelectedFile(this)" type="file"/>
+<label class="choose-file-btn" for="vehiclePhoto">
+        Choose Photo
+    </label>
+<div class="selected-file-name">
+        No photo selected
+    </div>
+</div>
+<input id="vehicle" placeholder="AP39AB1234" type="text"/>
+</div>
+<div class="step">
+<div class="upload-card">
+<h3>RC Card Upload</h3>
+<p>Upload Vehicle RC Card</p>
+<div class="custom-file-upload">
+<input accept="image/jpeg,image/png,image/webp,application/pdf" id="rcCard" onchange="showSelectedFile(this)" type="file"/>
+<label class="choose-file-btn" for="rcCard">
+                Choose File
+            </label>
+<div class="selected-file-name">
+                No file selected
+            </div>
+</div>
+</div>
+</div>
+<!-- STEP 4 -->
+<div class="step">
+<div class="upload-card">
+<h3>Driving License Upload</h3>
+<p>Upload License Image</p>
+<div class="custom-file-upload">
+<input accept="image/jpeg,image/png,image/webp,application/pdf" id="license" onchange="showSelectedFile(this)" type="file"/>
+<label class="choose-file-btn" for="license">
+                Choose File
+            </label>
+<div class="selected-file-name">
+                No file selected
+            </div>
+</div>
+</div>
+</div>
+<!-- STEP 5 -->
+<div class="step">
+<div class="upload-card">
+<h3>Bike Insurance Upload</h3>
+<p>Upload Insurance Copy</p>
+<div class="custom-file-upload">
+<input accept="image/jpeg,image/png,image/webp,application/pdf" id="insurance" onchange="showSelectedFile(this)" type="file"/>
+<label class="choose-file-btn" for="insurance">
+                Choose File
+            </label>
+<div class="selected-file-name">
+                No file selected
+            </div>
+</div>
+</div>
+</div>
+<!-- STEP 6 -->
+<div class="step">
+<div class="upload-card">
+<h3>Aadhaar Card Upload</h3>
+<p>Upload Aadhaar Front/Back</p>
+<div class="custom-file-upload">
+<input accept="image/jpeg,image/png,image/webp,application/pdf" id="aadhaar" onchange="showSelectedFile(this)" type="file"/>
+<label class="choose-file-btn" for="aadhaar">
+                Choose File
+            </label>
+<div class="selected-file-name">
+                No file selected
+            </div>
+</div>
+</div>
+</div>
+<!-- STEP 7 -->
+<div class="step">
+<div class="upload-card">
+<h3>PAN Card Upload</h3>
+<p>Upload PAN Card</p>
+<div class="custom-file-upload">
+<input accept="image/jpeg,image/png,image/webp,application/pdf" id="pan" onchange="showSelectedFile(this)" type="file"/>
+<label class="choose-file-btn" for="pan">
+                Choose File
+            </label>
+<div class="selected-file-name">
+                No file selected
+            </div>
+</div>
+</div>
+</div>
+<!-- STEP 8 -->
+<div class="step">
+<div class="success">
+<h2>Ready to Submit</h2>
+<p>Please verify all details and submit your application.</p>
+</div>
+</div>
+<div class="buttons">
+<button class="prev" onclick="prevStep()">Previous</button>
+<button class="next" id="nextBtn" onclick="nextStep()">Next</button>
+</div>
+</div>
+</div>
+</section>
+<section id="verificationPage" class="spa-page">
+<div class="verification-page">
+<div class="top-area">
+<div class="top-image-box">
+<img alt="Delivery Partner" src="ver.png"/>
+</div>
+</div>
+<div class="status-sheet">
+<div class="sheet-handle"></div>
+<div class="status-icon-wrapper">
+<div class="status-icon pending" id="statusIcon">
+                …
+            </div>
+</div>
+<div class="status-badge" id="statusBadge">
+            Checking Status
+        </div>
+<h1 id="statusTitle">
+            Checking Application
+        </h1>
+<p class="message" id="statusMessage">
+            Please wait while we check your latest application status.
+        </p>
+<div class="review-progress" id="reviewProgress">
+<div class="progress-dot"></div>
+<div class="progress-dot"></div>
+<div class="progress-dot"></div>
+</div>
+<div class="application-info">
+<div class="info-row">
+<span class="info-label">
+                    Mobile Number
+                </span>
+<span class="info-value" id="mobileText">
+                    Loading...
+                </span>
+</div>
+<div class="info-row">
+<span class="info-label">
+                    Application Status
+                </span>
+<span class="info-value" id="statusText">
+                    Loading...
+                </span>
+</div>
+</div>
+<button class="action-btn" id="applyBtn" onclick="goToDocument()">
+            Complete Application
+        </button>
+<button class="action-btn" id="doneBtn" onclick="goToDashboard()">
+            Continue
+        </button>
+<button class="logout-btn" id="logoutBtn" onclick="logoutUser()">
+            Logout
+        </button>
+<p class="support-text">
+    We'll notify you via WhatsApp or phone call once your verification is complete.
+</p>
+</div>
+</div>
+</section>
+<section id="orderPage" class="spa-page">
+<header class="navbar">
+<div class="logo">
+        CEZOO
+    </div>
+<div class="dutyTimer" id="dutyTimer">
+<div class="dutyTimerRow">
+<i class="fa-solid fa-stopwatch"></i>
+<span id="dutyTime">00:00:00</span>
+</div>
+<button class="endDutyBtn" id="endDutyBtn" onclick="endDuty()" type="button">
+        End Duty
+    </button>
+</div>
+<div class="navbarActions">
+<button aria-label="SOS" class="sosBtn" id="sosBtn" type="button">
+<span>SOS</span>
+</button>
+<button aria-label="Profile" class="profileBtn" onclick="openProfile()" type="button">
+<i class="fa-regular fa-circle-user"></i>
+</button>
+</div>
+</header>
+<div class="main">
+<button class="startBtn" onclick="startDuty()" type="button">
+<i class="fa-solid fa-motorcycle"></i>
+        Start Duty
+    </button>
+<section class="dutyOrdersSection" id="dutyOrdersSection">
+
+<div class="ordersHeader">
+<div>
+<h1 id="ordersHeaderTitle">Available Orders</h1>
+</div>
+<button aria-label="Refresh orders" class="refreshOrdersBtn" id="refreshOrdersBtn" onclick="loadOrders()" type="button">
+<i class="fa-solid fa-rotate-right"></i>
+</button>
+</div>
+<div class="ordersCountText" id="ordersCountText">
+            0 orders available
+        </div>
+<div class="availableOrdersList" id="availableOrdersList"></div>
+</section>
+</div>
+<div class="dutyGuardMessage" id="dutyGuardMessage" role="status" aria-live="polite">
+    Complete the delivery before going off duty.
+</div>
+<div class="profileOverlay" id="profileOverlay">
+<aside class="profileDrawer" onclick="event.stopPropagation()">
+<div class="profileDrawerHeader">
+<div class="profileDrawerTitle">
+                My Profile
+            </div>
+<button aria-label="Close profile" class="closeProfileBtn" onclick="closeProfile()" type="button">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+<div class="profileUserCard">
+<div class="profileUserIcon">
+<i class="fa-solid fa-user"></i>
+</div>
+<div class="profileUserDetails">
+<h2 id="profileName">
+                    Delivery Partner
+                </h2>
+<p id="profileMobile">
+                    +91 0000000000
+                </p>
+</div>
+</div>
+<div class="earningsCard">
+<div class="earningsLeft">
+<span>Your Earnings</span>
+<strong id="profileEarnings">
+                    ₹0
+                </strong>
+</div>
+<div class="earningsIcon">
+<i class="fa-solid fa-wallet"></i>
+</div>
+</div>
+<div class="profileMenu">
+<button class="profileMenuItem" onclick="openYourOrders()" type="button">
+<span class="profileMenuIcon">
+<i class="fa-solid fa-box"></i>
+</span>
+<span class="profileMenuText">
+                    Your Orders
+                </span>
+<i class="fa-solid fa-chevron-right profileMenuArrow"></i>
+</button>
+<button class="profileMenuItem" onclick="openIDCard()" type="button">
+<span class="profileMenuIcon">
+<i class="fa-solid fa-id-card"></i>
+</span>
+<span class="profileMenuText">
+        ID Card
+    </span>
+<i class="fa-solid fa-chevron-right profileMenuArrow"></i>
+</button>
+<button class="profileMenuItem" onclick="openCancelledOrders()" type="button">
+<span class="profileMenuIcon">
+<i class="fa-solid fa-ban"></i>
+</span>
+<span class="profileMenuText">
+        Cancelled Orders
+    </span>
+<i class="fa-solid fa-chevron-right profileMenuArrow"></i>
+</button>
+<button class="profileMenuItem" onclick="openAttendance()" type="button">
+<span class="profileMenuIcon">
+<i class="fa-solid fa-calendar-check"></i>
+</span>
+<span class="profileMenuText">
+        Attendance
+    </span>
+<i class="fa-solid fa-chevron-right profileMenuArrow"></i>
+</button>
+<button class="profileMenuItem" onclick="openTerms()" type="button">
+<span class="profileMenuIcon">
+<i class="fa-solid fa-file-contract"></i>
+</span>
+<span class="profileMenuText">
+                    Terms &amp; Conditions
+                </span>
+<i class="fa-solid fa-chevron-right profileMenuArrow"></i>
+</button>
+<button class="profileMenuItem" onclick="openPrivacy()" type="button">
+<span class="profileMenuIcon">
+<i class="fa-solid fa-shield-halved"></i>
+</span>
+<span class="profileMenuText">
+                    Privacy Policy
+                </span>
+<i class="fa-solid fa-chevron-right profileMenuArrow"></i>
+</button>
+<button class="profileMenuItem" onclick="openFAQ()" type="button">
+<span class="profileMenuIcon">
+<i class="fa-solid fa-circle-question"></i>
+</span>
+<span class="profileMenuText">
+        FAQ
+    </span>
+<i class="fa-solid fa-chevron-right profileMenuArrow"></i>
+</button>
+<button class="profileMenuItem" onclick="openSupport()" type="button">
+<span class="profileMenuIcon">
+<i class="fa-solid fa-headset"></i>
+</span>
+<span class="profileMenuText">
+                    Help &amp; Support
+                </span>
+<i class="fa-solid fa-chevron-right profileMenuArrow"></i>
+</button>
+</div>
+<div class="profileLogoutWrap">
+<button class="logoutBtn" onclick="logoutUser()" type="button">
+<i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+</div>
+</aside>
+</div>
+<div class="policyPage" id="termsPage">
+<div class="policyHeader">
+<button aria-label="Close Terms and Conditions" class="policyBackBtn" onclick="closeTerms()" type="button">
+<i class="fa-solid fa-arrow-left"></i>
+</button>
+<h1>Terms &amp; Conditions</h1>
+<span class="policyHeaderSpace"></span>
+</div>
+<div class="policyContent">
+<ol class="policyList">
+<li>
+            By using the CEZOO Delivery Partner application, you agree to follow all company policies and these Terms &amp; Conditions.
+        </li>
+<li>
+            Your delivery partner account is personal and must not be shared with any other person.
+        </li>
+<li>
+            Orders may only be accepted while you are on duty.
+        </li>
+<li>
+            After accepting an order, you are responsible for delivering it safely and on time.
+        </li>
+<li>
+            Customer names, addresses, phone numbers and locations must only be used for completing deliveries.
+        </li>
+<li>
+            Customer information must never be copied, shared or misused.
+        </li>
+<li>
+            Live location may be collected while an active delivery is in progress for tracking purposes.
+        </li>
+<li>
+            Delivery proof photos, when provided, must relate only to the completed order.
+        </li>
+<li>
+            Handle all products carefully to avoid damage or loss.
+        </li>
+<li>
+            Collect only the amount displayed in the application for Cash on Delivery orders.
+        </li>
+<li>
+            Delivery earnings are calculated based on delivery distance, item bonuses and customer tips.
+        </li>
+<li>
+            Fraudulent activities, fake deliveries, false proof uploads or misuse of the application may result in permanent account suspension.
+        </li>
+<li>
+            Follow all traffic rules and drive safely while delivering orders.
+        </li>
+<li>
+            CEZOO may update these Terms &amp; Conditions at any time. Continued use of the application indicates your acceptance of those updates.
+        </li>
+</ol>
+</div>
+</div>
+<div class="deliveryProofOverlay" id="deliveryProofOverlay">
+<div class="deliveryProofSheet" onclick="event.stopPropagation()">
+<div class="proofHandle"></div>
+<div class="proofHeader">
+<div>
+<h2>Delivery Proof</h2>
+<p>Take a photo of the delivered order.</p>
+</div>
+<button class="proofCloseBtn" onclick="closeDeliveryProofSheet()" type="button">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+<label class="deliveryProofUpload" for="deliveryProofInput" id="deliveryProofUpload">
+<div class="deliveryProofPlaceholder" id="deliveryProofPlaceholder">
+<i class="fa-solid fa-camera"></i>
+<strong>Take Photo</strong>
+<span>Tap to open camera</span>
+</div>
+<img alt="Delivery proof" class="deliveryProofPreview" id="deliveryProofPreview"/>
+</label>
+<input accept="image/*" capture="environment" hidden="" id="deliveryProofInput" type="file"/>
+<button class="submitDeliveryProofBtn" id="submitDeliveryProofBtn" onclick="submitDeliveredOrder()" type="button">
+            Submit
+        </button>
+</div>
+</div>
+<div class="deliveryEarningOverlay" id="deliveryEarningOverlay">
+<div class="deliveryEarningSheet">
+<div class="earningSuccessIcon">
+<i class="fa-solid fa-check"></i>
+</div>
+<span>Order Delivered</span>
+<h2>You earned</h2>
+<strong id="completedOrderEarning">
+            ₹0
+        </strong>
+<p>Getting your next order</p>
+</div>
+</div>
+<div aria-modal="true" class="orderCancelledOverlay" id="orderCancelledOverlay" role="alertdialog">
+<div class="orderCancelledCard">
+<div class="orderCancelledIcon">
+<i class="fa-solid fa-circle-xmark"></i>
+</div>
+<h2>Order Cancelled</h2>
+<p>
+            This order was cancelled by the customer or admin.
+            Stop delivery and return to available orders.
+        </p>
+<strong class="orderCancelledOrderId" id="orderCancelledOrderId">Order</strong>
+<button class="orderCancelledOkBtn" id="orderCancelledOkBtn" type="button">
+            Find Another Order
+        </button>
+</div>
+</div>
+<div aria-modal="true" class="codPaymentOverlay" id="codPaymentOverlay" role="dialog">
+<div class="codPaymentSheet" onclick="event.stopPropagation()">
+<div class="codPaymentHandle"></div>
+<div class="codPaymentHeader">
+<div>
+<h2>Collect Payment</h2>
+<p>Payment must be completed before uploading delivery proof.</p>
+</div>
+<button class="codPaymentClose" onclick="closeCodPaymentFlow()" type="button">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+<div class="codAmountCard">
+<span>Cash on Delivery total</span>
+<strong id="codPaymentAmount">₹0</strong>
+</div>
+<div class="codPaymentStep active" id="codMethodStep">
+<div class="codMethodTitle">Choose how to complete this payment</div>
+<div class="codMethodGrid">
+<button class="codMethodBtn qr" onclick="startCodQrPayment('scanner')" type="button">
+<span class="codMethodIcon">
+<i class="fa-solid fa-qrcode"></i>
+</span>
+<strong>Show Payment QR</strong>
+<span>Customer scans this QR using any UPI app</span>
+</button>
+<button class="codMethodBtn phone" onclick="startCodQrPayment('phone')" type="button">
+<span class="codMethodIcon">
+<i class="fa-solid fa-mobile-screen-button"></i>
+</span>
+<strong>Pay on This Phone</strong>
+<span>Open Razorpay and pay using PhonePe, Paytm, Google Pay, card or UPI</span>
+</button>
+</div>
+<button class="codSkipPaymentBtn" id="codSkipPaymentBtn" onclick="skipCodPayment()" type="button">
+<i class="fa-solid fa-forward"></i>
+                Skip &amp; Mark Payment Paid
+            </button>
+</div>
+<div class="codPaymentStep" id="codQrStep">
+<div class="codQrLoading" id="codQrLoading">
+<i class="fa-solid fa-spinner fa-spin"></i>
+<strong>Generating secure QR</strong>
+<span>Please do not close this screen.</span>
+</div>
+<div id="codQrReady" style="display:none">
+<div class="codQrBox">
+<img alt="UPI payment QR" id="codQrImage"/>
+</div>
+<div class="codQrInstruction">
+<strong id="codQrTitle">Scan and pay</strong>
+<span id="codQrDescription">Open any UPI app and scan this QR.</span>
+</div>
+<button class="codShareQrBtn" id="codShareQrBtn" onclick="openCodRazorpayCheckout()" style="display:none" type="button">
+<i class="fa-solid fa-credit-card"></i>
+                    Open Razorpay Payment
+                </button>
+<div class="codPaymentStatus">
+<div class="codStatusIcon" id="codStatusIcon">
+<i class="fa-solid fa-spinner fa-spin"></i>
+</div>
+<div class="codStatusText">
+<strong id="codStatusTitle">Waiting for payment</strong>
+<span id="codStatusDescription">Status updates automatically.</span>
+</div>
+</div>
+<button class="codChangeMethodBtn" onclick="changeCodPaymentMethod()" type="button">
+<i class="fa-solid fa-arrow-left"></i>
+                    Change Payment Method
+                </button>
+</div>
+<div class="codPaymentError" id="codPaymentError"></div>
+</div>
+<div class="codPaymentStep" id="codSuccessStep">
+<div class="codPaymentSuccess">
+<div class="codPaymentSuccessIcon">
+<i class="fa-solid fa-check"></i>
+</div>
+<h3>Payment Successful</h3>
+<p id="codSuccessMessage">Payment has been received. You can now upload delivery proof.</p>
+<button class="codContinueProofBtn" onclick="continueToDeliveryProof()" type="button">
+                    Continue to Delivery Proof
+                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="app.script.js"></script>
+<script src="login.script.js"></script>
+<script src="document.script.js"></script>
+<script src="verification.script.js"></script>
+<script src="order.script.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+  const mobile=localStorage.getItem('partner_mobile');
+  if(mobile && typeof window.startVerification==='function') window.startVerification(mobile);
+  else window.showPage('login');
+});
+</script>
+</body>
+</html>
