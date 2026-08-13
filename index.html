@@ -3036,6 +3036,1687 @@ html,body{margin:0;padding:0;width:100%;min-height:100%;}
     display:none !important;
 }
 
+
+/* ===== PROFILE EARNINGS SMALL LOADER ===== */
+#orderPage #profileEarnings{
+    min-width:34px;
+    min-height:28px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#orderPage .profileEarningsSpinner{
+    width:17px;
+    height:17px;
+    border:2px solid rgba(255,255,255,.38);
+    border-top-color:#fff;
+    border-radius:50%;
+    display:inline-block;
+    animation:profileEarningsSpin .7s linear infinite;
+}
+
+@keyframes profileEarningsSpin{
+    to{ transform:rotate(360deg); }
+}
+
+
+/* ===== PROFILE EARNINGS LOADER ===== */
+#orderPage #profileEarnings{
+    min-width:34px;
+    min-height:28px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#orderPage .profileEarningsSpinner{
+    width:17px;
+    height:17px;
+    display:inline-block;
+    border:2px solid rgba(255,255,255,.35);
+    border-top-color:#fff;
+    border-radius:50%;
+    animation:cezooProfileEarningsSpin .65s linear infinite;
+}
+
+@keyframes cezooProfileEarningsSpin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   PROFILE EARNINGS — EXACT AMOUNT SPOT LOADER
+===================================================== */
+#orderPage #profileEarnings{
+    min-width:34px;
+    min-height:29px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#orderPage #profileEarnings .profileEarningsSpinner{
+    width:18px;
+    height:18px;
+    display:inline-block;
+    border:2px solid rgba(255,255,255,.38);
+    border-top-color:#fff;
+    border-radius:50%;
+    animation:cezooProfileEarningsSpin .65s linear infinite;
+}
+
+@keyframes cezooProfileEarningsSpin{
+    to{transform:rotate(360deg);}
+}
+
+/* =====================================================
+   YOUR ORDERS — DELIVERED HISTORY
+===================================================== */
+#orderPage .yourOrdersOverlay{
+    position:fixed;
+    inset:0;
+    z-index:7000;
+    background:#f5f6f8;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateX(100%);
+    transition:
+        transform .26s ease,
+        opacity .22s ease,
+        visibility .22s ease;
+}
+
+#orderPage .yourOrdersOverlay.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateX(0);
+}
+
+#orderPage .yourOrdersPage{
+    width:100%;
+    height:100dvh;
+    display:flex;
+    flex-direction:column;
+    background:#f5f6f8;
+}
+
+#orderPage .yourOrdersHeader{
+    min-height:calc(120px + var(--safe-top));
+    padding:
+        calc(55px + var(--safe-top))
+        16px
+        12px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+    flex-shrink:0;
+}
+
+#orderPage .yourOrdersBack{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f3f4f6;
+    color:#111827;
+    font-size:15px;
+    cursor:pointer;
+    flex-shrink:0;
+}
+
+#orderPage .yourOrdersHeaderText{
+    min-width:0;
+}
+
+#orderPage .yourOrdersHeaderText h2{
+    margin:0;
+    color:#111827;
+    font-size:18px;
+    font-weight:800;
+}
+
+#orderPage .yourOrdersHeaderText p{
+    margin:3px 0 0;
+    color:#6b7280;
+    font-size:11px;
+    font-weight:600;
+}
+
+#orderPage .yourOrdersBody{
+    flex:1;
+    overflow-y:auto;
+    padding:
+        14px
+        14px
+        calc(28px + var(--safe-bottom));
+}
+
+#orderPage .yourOrdersLoader{
+    min-height:65vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#orderPage .yourOrdersSpinner{
+    width:32px;
+    height:32px;
+    border:3px solid #d1fae5;
+    border-top-color:#16a34a;
+    border-radius:50%;
+    animation:cezooYourOrdersSpin .7s linear infinite;
+}
+
+@keyframes cezooYourOrdersSpin{
+    to{transform:rotate(360deg);}
+}
+
+#orderPage .yourOrdersEmpty{
+    min-height:65vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+#orderPage .yourOrdersEmpty i{
+    width:58px;
+    height:58px;
+    margin-bottom:14px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#dcfce7;
+    color:#16a34a;
+    font-size:22px;
+}
+
+#orderPage .yourOrdersEmpty h3{
+    margin:0 0 6px;
+    color:#111827;
+    font-size:17px;
+    font-weight:800;
+}
+
+#orderPage .yourOrdersEmpty p{
+    margin:0;
+    color:#6b7280;
+    font-size:12px;
+}
+
+#orderPage .yourOrdersList{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+#orderPage .deliveredOrderRow{
+    padding:13px 14px;
+    border:1px solid #e5e7eb;
+    border-radius:15px;
+    background:#fff;
+}
+
+#orderPage .deliveredOrderTop{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:11px;
+}
+
+#orderPage .deliveredOrderId{
+    min-width:0;
+}
+
+#orderPage .deliveredOrderId span{
+    display:block;
+    margin-bottom:3px;
+    color:#9ca3af;
+    font-size:9px;
+    font-weight:700;
+}
+
+#orderPage .deliveredOrderId strong{
+    display:block;
+    color:#111827;
+    font-size:11px;
+    font-weight:800;
+    overflow-wrap:anywhere;
+}
+
+#orderPage .deliveredPaymentBadge{
+    flex-shrink:0;
+    padding:5px 9px;
+    border-radius:999px;
+    color:#fff;
+    font-size:9px;
+    font-weight:800;
+}
+
+#orderPage .deliveredPaymentBadge.cash{
+    background:#dc2626;
+}
+
+#orderPage .deliveredPaymentBadge.upi{
+    background:#1677ff;
+}
+
+#orderPage .deliveredOrderStats{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:7px;
+}
+
+#orderPage .deliveredStat{
+    min-width:0;
+    padding:10px 8px;
+    border-radius:11px;
+    background:#f8fafc;
+}
+
+#orderPage .deliveredStat span{
+    display:block;
+    margin-bottom:4px;
+    color:#9ca3af;
+    font-size:8px;
+    font-weight:700;
+}
+
+#orderPage .deliveredStat strong{
+    display:block;
+    color:#111827;
+    font-size:11px;
+    font-weight:800;
+    overflow-wrap:anywhere;
+}
+
+#orderPage .deliveredStat.earning{
+    background:#ecfdf3;
+}
+
+#orderPage .deliveredStat.earning strong{
+    color:#15803d;
+}
+
+#orderPage .yourOrdersSummary{
+    margin-bottom:12px;
+    padding:13px 14px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background:#ecfdf3;
+}
+
+#orderPage .yourOrdersSummary span{
+    color:#166534;
+    font-size:11px;
+    font-weight:700;
+}
+
+#orderPage .yourOrdersSummary strong{
+    color:#15803d;
+    font-size:17px;
+    font-weight:900;
+}
+
+
+@media (max-width:380px){
+    #orderPage .deliveredOrderStats{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+}
+
+
+/* =====================================================
+   EMBEDDED CEZOO DELIVERY PARTNER ID CARD
+===================================================== */
+
+#orderPage .partnerIdOverlay{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    background:rgba(15,23,42,.52);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .24s ease,visibility .24s ease;
+}
+
+#orderPage .partnerIdOverlay.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+#orderPage .partnerIdSheet{
+    width:100%;
+    max-width:560px;
+    padding:10px 18px calc(26px + var(--safe-bottom));
+    border-radius:28px 28px 0 0;
+    background:#fff;
+    box-shadow:0 -18px 48px rgba(15,23,42,.22);
+    transform:translateY(105%);
+    transition:transform .32s cubic-bezier(.22,.8,.32,1);
+}
+
+#orderPage .partnerIdOverlay.open .partnerIdSheet{
+    transform:translateY(0);
+}
+
+#orderPage .partnerIdHandle{
+    width:44px;
+    height:5px;
+    margin:0 auto 15px;
+    border-radius:999px;
+    background:#d1d5db;
+}
+
+#orderPage .partnerIdHeader{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+#orderPage .partnerIdHeader h2{
+    margin:0;
+    color:#111827;
+    font-size:18px;
+    font-weight:800;
+}
+
+#orderPage .partnerIdClose{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f1f5f9;
+    color:#334155;
+    font-size:15px;
+    cursor:pointer;
+}
+
+#orderPage .partnerIdScene{
+    width:100%;
+    max-width:360px;
+    margin:0 auto 12px;
+    perspective:1200px;
+}
+
+#orderPage .partnerIdCard{
+    position:relative;
+    width:100%;
+    aspect-ratio:1.58 / 1;
+    transform-style:preserve-3d;
+    transition:transform .62s cubic-bezier(.2,.75,.25,1);
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+}
+
+#orderPage .partnerIdCard.flipped{
+    transform:rotateY(180deg);
+}
+
+#orderPage .partnerIdFace{
+    position:absolute;
+    inset:0;
+    padding:19px;
+    border-radius:23px;
+    overflow:hidden;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    box-shadow:0 17px 40px rgba(15,23,42,.18);
+}
+
+#orderPage .partnerIdFront{
+    display:flex;
+    flex-direction:column;
+    color:#fff;
+    background:
+        radial-gradient(circle at 88% 8%,rgba(255,255,255,.22),transparent 31%),
+        linear-gradient(145deg,#16a34a,#15803d 58%,#14532d);
+}
+
+#orderPage .partnerIdTop{
+    position:relative;
+    z-index:2;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+}
+
+#orderPage .partnerIdLogo{
+    font-family:"Bungee",Inter,sans-serif;
+    font-size:24px;
+    letter-spacing:.5px;
+}
+
+#orderPage .partnerIdVerified{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 9px;
+    border-radius:999px;
+    background:rgba(255,255,255,.17);
+    color:#fff;
+    font-size:10px;
+    font-weight:800;
+}
+
+#orderPage .partnerIdRole{
+    position:relative;
+    z-index:2;
+    margin-top:18px;
+    color:rgba(255,255,255,.82);
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:1.25px;
+    text-transform:uppercase;
+}
+
+#orderPage .partnerIdName{
+    position:relative;
+    z-index:2;
+    margin-top:5px;
+    max-width:86%;
+    color:#fff;
+    font-size:21px;
+    line-height:1.18;
+    font-weight:900;
+    overflow-wrap:anywhere;
+}
+
+#orderPage .partnerIdBike{
+    position:relative;
+    z-index:2;
+    margin-top:6px;
+    color:rgba(255,255,255,.90);
+    font-size:10px;
+    line-height:1.3;
+    font-weight:800;
+    letter-spacing:.6px;
+}
+#orderPage .partnerIdBottom{
+    position:relative;
+    z-index:2;
+    margin-top:auto;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:12px;
+}
+
+#orderPage .partnerIdSmallLabel{
+    display:block;
+    margin-bottom:3px;
+    color:rgba(255,255,255,.68);
+    font-size:8px;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+#orderPage .partnerIdMobile{
+    color:#fff;
+    font-size:12px;
+    font-weight:800;
+}
+
+#orderPage .partnerIdPowered{
+    max-width:150px;
+    text-align:right;
+    color:rgba(255,255,255,.76);
+    font-size:8px;
+    line-height:1.4;
+    font-weight:600;
+}
+
+#orderPage .partnerIdBack{
+    transform:rotateY(180deg);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    background:#fff;
+    color:#111827;
+}
+
+#orderPage .partnerIdBackTop{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+}
+
+#orderPage .partnerIdBackLogo{
+    font-family:"Bungee",Inter,sans-serif;
+    color:#16a34a;
+    font-size:23px;
+}
+
+#orderPage .partnerIdBackTick{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    padding:6px 9px;
+    border-radius:999px;
+    background:#ecfdf3;
+    color:#15803d;
+    font-size:9px;
+    font-weight:800;
+}
+
+#orderPage .partnerIdSupportTitle{
+    margin-bottom:10px;
+    color:#111827;
+    font-size:11px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+}
+
+#orderPage .partnerIdInfoList{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+#orderPage .partnerIdInfoRow{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 11px;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    background:#f8fafc;
+}
+
+#orderPage .partnerIdInfoIcon{
+    width:30px;
+    height:30px;
+    flex-shrink:0;
+    border-radius:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#ecfdf3;
+    color:#16a34a;
+    font-size:12px;
+}
+
+#orderPage .partnerIdInfoText span{
+    display:block;
+    margin-bottom:2px;
+    color:#94a3b8;
+    font-size:8px;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+#orderPage .partnerIdInfoText strong{
+    display:block;
+    color:#111827;
+    font-size:10px;
+    line-height:1.4;
+    font-weight:800;
+    overflow-wrap:anywhere;
+}
+
+#orderPage .partnerIdBackFooter{
+    padding-top:10px;
+    color:#94a3b8;
+    font-size:8px;
+    line-height:1.4;
+    font-weight:600;
+    text-align:center;
+}
+#orderPage .partnerIdHint{
+    margin-top:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    color:#64748b;
+    font-size:10px;
+    font-weight:700;
+}
+
+#orderPage .partnerIdHint i{
+    color:#16a34a;
+}
+
+@media (max-width:380px){
+    #orderPage .partnerIdFace{
+        padding:16px;
+    }
+
+    #orderPage .partnerIdName{
+        font-size:19px;
+    }
+}
+
+
+/* ===== ID CARD BACK FIT FIX ===== */
+#orderPage .partnerIdBack{
+    padding:15px !important;
+    justify-content:flex-start !important;
+}
+
+#orderPage .partnerIdBackTop{
+    margin-bottom:9px !important;
+    flex-shrink:0;
+}
+
+#orderPage .partnerIdBackLogo{
+    font-size:19px !important;
+}
+
+#orderPage .partnerIdBackTick{
+    padding:5px 8px !important;
+    font-size:8px !important;
+}
+
+#orderPage .partnerIdSupportTitle{
+    margin-bottom:7px !important;
+    font-size:9px !important;
+}
+
+#orderPage .partnerIdInfoList{
+    gap:6px !important;
+    min-height:0;
+    flex:1;
+}
+
+#orderPage .partnerIdInfoRow{
+    gap:7px !important;
+    padding:7px 8px !important;
+    border-radius:10px !important;
+    min-height:0;
+}
+
+#orderPage .partnerIdInfoIcon{
+    width:24px !important;
+    height:24px !important;
+    border-radius:7px !important;
+    font-size:10px !important;
+}
+
+#orderPage .partnerIdInfoText{
+    min-width:0;
+    flex:1;
+}
+
+#orderPage .partnerIdInfoText span{
+    margin-bottom:1px !important;
+    font-size:7px !important;
+    line-height:1.1 !important;
+}
+
+#orderPage .partnerIdInfoText strong{
+    font-size:8.5px !important;
+    line-height:1.25 !important;
+    word-break:break-word;
+}
+
+#orderPage .partnerIdBackFooter{
+    margin-top:7px !important;
+    padding-top:0 !important;
+    font-size:7px !important;
+    line-height:1.2 !important;
+    flex-shrink:0;
+}
+
+@media (max-width:380px){
+    #orderPage .partnerIdBack{
+        padding:13px !important;
+    }
+
+    #orderPage .partnerIdInfoList{
+        gap:5px !important;
+    }
+
+    #orderPage .partnerIdInfoRow{
+        padding:6px 7px !important;
+    }
+
+    #orderPage .partnerIdInfoText strong{
+        font-size:8px !important;
+    }
+}
+
+
+/* =====================================================
+   SIMPLE FULL-RED ORDER CANCELLED STATE
+===================================================== */
+#orderPage .orderCancelledOverlay{
+    position:fixed;
+    inset:0;
+    z-index:9000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:
+        calc(24px + var(--safe-top))
+        24px
+        calc(24px + var(--safe-bottom));
+    background:#dc2626;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .22s ease,visibility .22s ease;
+}
+
+#orderPage .orderCancelledOverlay.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+#orderPage .orderCancelledCard{
+    width:100%;
+    max-width:390px;
+    padding:0;
+    border:none;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
+    text-align:center;
+}
+
+#orderPage .orderCancelledIcon{
+    width:auto;
+    height:auto;
+    margin:0 auto 22px;
+    border-radius:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:transparent;
+    color:#fff;
+    font-size:78px;
+    box-shadow:none;
+    animation:cancelledXPop .55s cubic-bezier(.2,.8,.25,1);
+}
+
+#orderPage .orderCancelledIcon i{
+    color:#fff;
+    filter:none;
+}
+
+@keyframes cancelledXPop{
+    0%{
+        opacity:0;
+        transform:scale(.35) rotate(-18deg);
+    }
+    65%{
+        opacity:1;
+        transform:scale(1.12) rotate(4deg);
+    }
+    100%{
+        opacity:1;
+        transform:scale(1) rotate(0);
+    }
+}
+
+#orderPage .orderCancelledCard h2{
+    margin:0;
+    color:#fff;
+    font-size:27px;
+    line-height:1.15;
+    font-weight:900;
+}
+
+#orderPage .orderCancelledCard p{
+    max-width:330px;
+    margin:11px auto 0;
+    color:rgba(255,255,255,.86);
+    font-size:13px;
+    line-height:1.55;
+    font-weight:500;
+}
+
+#orderPage .orderCancelledOrderId{
+    display:block;
+    margin-top:18px;
+    padding:0;
+    border:none;
+    border-radius:0;
+    background:transparent;
+    color:#fff;
+    font-size:11px;
+    line-height:1.45;
+    font-weight:800;
+    overflow-wrap:anywhere;
+    opacity:.86;
+}
+
+#orderPage .orderCancelledOkBtn{
+    display:none !important;
+}
+
+
+/* =====================================================
+   ORDER CANCELLED — BASKET BOTTOM SHEET
+===================================================== */
+#orderPage .orderCancelledOverlay{
+    position:fixed !important;
+    inset:0 !important;
+    z-index:9000 !important;
+    display:flex !important;
+    align-items:flex-end !important;
+    justify-content:center !important;
+    padding:0 !important;
+    background:rgba(15,23,42,.48) !important;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .22s ease,visibility .22s ease;
+}
+
+#orderPage .orderCancelledOverlay.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+#orderPage .orderCancelledCard{
+    width:100% !important;
+    max-width:560px !important;
+    padding:
+        12px
+        18px
+        calc(22px + var(--safe-bottom)) !important;
+    border:none !important;
+    border-radius:26px 26px 0 0 !important;
+    background:#fff !important;
+    box-shadow:0 -18px 45px rgba(15,23,42,.20) !important;
+    text-align:left !important;
+    transform:translateY(105%);
+    transition:transform .32s cubic-bezier(.22,.8,.32,1);
+}
+
+#orderPage .orderCancelledOverlay.open .orderCancelledCard{
+    transform:translateY(0);
+}
+
+#orderPage .orderCancelledHandle{
+    width:42px;
+    height:5px;
+    margin:0 auto 18px;
+    border-radius:999px;
+    background:#d1d5db;
+}
+
+#orderPage .orderCancelledContent{
+    display:grid;
+    grid-template-columns:112px minmax(0,1fr);
+    gap:18px;
+    align-items:center;
+}
+
+#orderPage .cancelBasketScene{
+    position:relative;
+    width:112px;
+    height:118px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+}
+
+#orderPage .cancelBasket{
+    position:relative;
+    width:72px;
+    height:50px;
+    border:4px solid #dc2626;
+    border-top:none;
+    border-radius:0 0 16px 16px;
+    transform:skewX(-3deg);
+}
+
+#orderPage .cancelBasket::before,
+#orderPage .cancelBasket::after{
+    content:"";
+    position:absolute;
+    top:-11px;
+    width:42px;
+    height:4px;
+    background:#dc2626;
+    border-radius:999px;
+}
+
+#orderPage .cancelBasket::before{
+    left:-7px;
+    transform:rotate(9deg);
+}
+
+#orderPage .cancelBasket::after{
+    right:-7px;
+    transform:rotate(-9deg);
+}
+
+#orderPage .cancelBasketHandle{
+    position:absolute;
+    left:50%;
+    top:-24px;
+    width:42px;
+    height:28px;
+    border:4px solid #dc2626;
+    border-bottom:none;
+    border-radius:24px 24px 0 0;
+    transform:translateX(-50%);
+}
+
+#orderPage .cancelDropItem{
+    position:absolute;
+    top:0;
+    width:15px;
+    height:15px;
+    border-radius:4px;
+    opacity:0;
+    animation:cancelItemDrop 1.9s ease-in infinite;
+}
+
+#orderPage .cancelDropItem.one{
+    left:26px;
+    background:#f59e0b;
+    animation-delay:.05s;
+}
+
+#orderPage .cancelDropItem.two{
+    left:50px;
+    background:#22c55e;
+    animation-delay:.42s;
+}
+
+#orderPage .cancelDropItem.three{
+    left:72px;
+    background:#3b82f6;
+    animation-delay:.82s;
+}
+
+@keyframes cancelItemDrop{
+    0%{
+        opacity:0;
+        transform:translateY(0) rotate(0deg) scale(.8);
+    }
+    12%{
+        opacity:1;
+    }
+    72%{
+        opacity:1;
+        transform:translateY(72px) rotate(170deg) scale(1);
+    }
+    100%{
+        opacity:0;
+        transform:translateY(82px) rotate(220deg) scale(.75);
+    }
+}
+
+#orderPage .orderCancelledText h2{
+    margin:0 !important;
+    color:#dc2626 !important;
+    font-family:"Bungee",Inter,sans-serif !important;
+    font-size:21px !important;
+    line-height:1.2 !important;
+    font-weight:400 !important;
+    letter-spacing:.2px;
+}
+
+#orderPage .orderCancelledText p{
+    margin:8px 0 0 !important;
+    max-width:none !important;
+    color:#6b7280 !important;
+    font-size:12px !important;
+    line-height:1.55 !important;
+    font-weight:500 !important;
+}
+
+#orderPage .orderCancelledOrderId{
+    display:block !important;
+    margin-top:10px !important;
+    padding:0 !important;
+    border:none !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    color:#9ca3af !important;
+    font-size:10px !important;
+    line-height:1.45 !important;
+    font-weight:700 !important;
+    opacity:1 !important;
+}
+
+#orderPage .orderCancelledOkBtn{
+    display:flex !important;
+    width:100% !important;
+    height:50px !important;
+    margin-top:18px !important;
+    border:none !important;
+    border-radius:14px !important;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:#16a34a !important;
+    color:#fff !important;
+    font-size:13px !important;
+    font-weight:800 !important;
+    cursor:pointer;
+}
+
+#orderPage .orderCancelledOkBtn:active{
+    transform:scale(.985);
+}
+
+@media (max-width:380px){
+    #orderPage .orderCancelledContent{
+        grid-template-columns:94px minmax(0,1fr);
+        gap:14px;
+    }
+
+    #orderPage .cancelBasketScene{
+        width:94px;
+        transform:scale(.9);
+        transform-origin:center;
+    }
+
+    #orderPage .orderCancelledText h2{
+        font-size:18px !important;
+    }
+}
+
+
+/* =====================================================
+   ATTENDANCE FULL PAGE
+===================================================== */
+#orderPage .attendanceOverlay{
+    position:fixed;
+    inset:0;
+    z-index:9800;
+    background:#f5f6f8;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateX(100%);
+    transition:transform .28s ease,opacity .22s ease,visibility .22s ease;
+}
+
+#orderPage .attendanceOverlay.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateX(0);
+}
+
+#orderPage .attendancePage{
+    width:100%;
+    height:100dvh;
+    display:flex;
+    flex-direction:column;
+    background:#f5f6f8;
+}
+
+#orderPage .attendanceHeader{
+    min-height:calc(96px + var(--safe-top));
+    padding:
+        calc(49px + var(--safe-top))
+        16px
+        14px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+    flex-shrink:0;
+}
+
+#orderPage .attendanceBack{
+    width:40px;
+    height:40px;
+    flex-shrink:0;
+    border:none;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f3f4f6;
+    color:#111827;
+    font-size:15px;
+    cursor:pointer;
+}
+
+#orderPage .attendanceHeaderText h2{
+    margin:0;
+    color:#111827;
+    font-size:19px;
+    font-weight:850;
+}
+
+#orderPage .attendanceHeaderText p{
+    margin:3px 0 0;
+    color:#6b7280;
+    font-size:11px;
+    font-weight:600;
+}
+
+#orderPage .attendanceBody{
+    flex:1;
+    overflow-y:auto;
+    padding:16px 14px calc(28px + var(--safe-bottom));
+}
+
+#orderPage .attendanceLoader{
+    min-height:65vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#orderPage .attendanceSpinner{
+    width:32px;
+    height:32px;
+    border:3px solid #dcfce7;
+    border-top-color:#16a34a;
+    border-radius:50%;
+    animation:attendanceSpin .7s linear infinite;
+}
+
+@keyframes attendanceSpin{
+    to{transform:rotate(360deg);}
+}
+
+#orderPage .attendanceSummaryGrid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:8px;
+    margin-bottom:14px;
+}
+
+#orderPage .attendanceSummaryCard{
+    min-width:0;
+    padding:13px 10px;
+    border-radius:14px;
+    background:#fff;
+    border:1px solid #e5e7eb;
+}
+
+#orderPage .attendanceSummaryCard span{
+    display:block;
+    color:#9ca3af;
+    font-size:8px;
+    font-weight:750;
+    margin-bottom:5px;
+}
+
+#orderPage .attendanceSummaryCard strong{
+    display:block;
+    color:#111827;
+    font-size:16px;
+    font-weight:900;
+    overflow-wrap:anywhere;
+}
+
+#orderPage .attendanceSummaryCard.green{
+    background:#ecfdf3;
+    border-color:#d1fae5;
+}
+
+#orderPage .attendanceSummaryCard.green strong{
+    color:#15803d;
+}
+
+#orderPage .attendanceSection{
+    margin-bottom:14px;
+    padding:14px;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    background:#fff;
+}
+
+#orderPage .attendanceSectionTitle{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:13px;
+}
+
+#orderPage .attendanceSectionTitle h3{
+    margin:0;
+    color:#111827;
+    font-size:13px;
+    font-weight:850;
+}
+
+#orderPage .attendanceSectionTitle span{
+    color:#9ca3af;
+    font-size:9px;
+    font-weight:700;
+}
+
+#orderPage .attendanceChart{
+    height:150px;
+    display:flex;
+    align-items:flex-end;
+    gap:8px;
+    padding-top:8px;
+}
+
+#orderPage .attendanceChartCol{
+    min-width:0;
+    flex:1;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+}
+
+#orderPage .attendanceChartValue{
+    margin-bottom:5px;
+    color:#15803d;
+    font-size:8px;
+    font-weight:800;
+}
+
+#orderPage .attendanceChartTrack{
+    width:100%;
+    max-width:28px;
+    height:105px;
+    display:flex;
+    align-items:flex-end;
+    border-radius:9px;
+    background:#f3f4f6;
+    overflow:hidden;
+}
+
+#orderPage .attendanceChartBar{
+    width:100%;
+    min-height:3px;
+    border-radius:9px 9px 0 0;
+    background:#16a34a;
+    transition:height .35s ease;
+}
+
+#orderPage .attendanceChartLabel{
+    margin-top:6px;
+    color:#6b7280;
+    font-size:8px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+#orderPage .attendanceDayList{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+#orderPage .attendanceDay{
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    overflow:hidden;
+    background:#fff;
+}
+
+#orderPage .attendanceDayHead{
+    width:100%;
+    border:none;
+    padding:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background:#fff;
+    cursor:pointer;
+    text-align:left;
+}
+
+#orderPage .attendanceDayDate strong{
+    display:block;
+    color:#111827;
+    font-size:12px;
+    font-weight:850;
+}
+
+#orderPage .attendanceDayDate span{
+    display:block;
+    margin-top:3px;
+    color:#9ca3af;
+    font-size:8px;
+    font-weight:650;
+}
+
+#orderPage .attendanceDayStats{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+#orderPage .attendanceDayStat{
+    text-align:right;
+}
+
+#orderPage .attendanceDayStat span{
+    display:block;
+    color:#9ca3af;
+    font-size:7px;
+    font-weight:700;
+}
+
+#orderPage .attendanceDayStat strong{
+    display:block;
+    margin-top:2px;
+    color:#111827;
+    font-size:11px;
+    font-weight:850;
+}
+
+#orderPage .attendanceDayChevron{
+    color:#9ca3af;
+    font-size:10px;
+    transition:transform .2s ease;
+}
+
+#orderPage .attendanceDay.open .attendanceDayChevron{
+    transform:rotate(180deg);
+}
+
+#orderPage .attendanceTimeline{
+    display:none;
+    padding:0 12px 12px;
+}
+
+#orderPage .attendanceDay.open .attendanceTimeline{
+    display:block;
+}
+
+#orderPage .attendanceTimelineItem{
+    position:relative;
+    padding:0 0 13px 27px;
+}
+
+#orderPage .attendanceTimelineItem:last-child{
+    padding-bottom:0;
+}
+
+#orderPage .attendanceTimelineItem::before{
+    content:"";
+    position:absolute;
+    left:8px;
+    top:18px;
+    bottom:-2px;
+    width:1px;
+    background:#e5e7eb;
+}
+
+#orderPage .attendanceTimelineItem:last-child::before{
+    display:none;
+}
+
+#orderPage .attendanceTimelineDot{
+    position:absolute;
+    left:3px;
+    top:4px;
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:#16a34a;
+    box-shadow:0 0 0 4px #ecfdf3;
+}
+
+#orderPage .attendanceTimelineDot.red{
+    background:#dc2626;
+    box-shadow:0 0 0 4px #fee2e2;
+}
+
+#orderPage .attendanceTimelineText{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+}
+
+#orderPage .attendanceTimelineText strong{
+    color:#111827;
+    font-size:10px;
+    font-weight:800;
+}
+
+#orderPage .attendanceTimelineText span{
+    flex-shrink:0;
+    color:#6b7280;
+    font-size:9px;
+    font-weight:700;
+}
+
+#orderPage .attendanceTimelineSub{
+    margin-top:3px;
+    color:#9ca3af;
+    font-size:8px;
+    line-height:1.35;
+}
+
+#orderPage .attendanceEmpty{
+    min-height:45vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#6b7280;
+}
+
+#orderPage .attendanceEmpty i{
+    width:56px;
+    height:56px;
+    margin-bottom:12px;
+    border-radius:17px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#ecfdf3;
+    color:#16a34a;
+    font-size:21px;
+}
+
+#orderPage .attendanceEmpty h3{
+    margin:0 0 5px;
+    color:#111827;
+    font-size:15px;
+    font-weight:850;
+}
+
+#orderPage .attendanceEmpty p{
+    margin:0;
+    max-width:270px;
+    font-size:10px;
+    line-height:1.5;
+}
+
+@media (max-width:370px){
+    #orderPage .attendanceSummaryGrid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+
+/* =====================================================
+   ATTENDANCE CLARITY + MULTI COLOR
+===================================================== */
+#orderPage .attendanceChartLegend{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:8px;
+    flex-wrap:wrap;
+}
+
+#orderPage .attendanceLegendItem{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    color:#6b7280;
+    font-size:8px;
+    font-weight:700;
+}
+
+#orderPage .attendanceLegendDot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+}
+
+#orderPage .attendanceLegendDot.orders{
+    background:#16a34a;
+}
+
+#orderPage .attendanceLegendDot.minutes{
+    background:#f59e0b;
+}
+
+#orderPage .attendanceChartDual{
+    height:170px;
+    display:flex;
+    align-items:flex-end;
+    gap:8px;
+    padding-top:8px;
+}
+
+#orderPage .attendanceChartDual .attendanceChartCol{
+    flex:1;
+    min-width:0;
+    height:100%;
+}
+
+#orderPage .attendanceDualBars{
+    height:118px;
+    width:100%;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    gap:4px;
+}
+
+#orderPage .attendanceMiniBar{
+    width:10px;
+    min-height:3px;
+    border-radius:7px 7px 0 0;
+}
+
+#orderPage .attendanceMiniBar.orders{
+    background:#16a34a;
+}
+
+#orderPage .attendanceMiniBar.minutes{
+    background:#f59e0b;
+}
+
+#orderPage .attendanceChartNumbers{
+    min-height:24px;
+    margin-bottom:4px;
+    text-align:center;
+    color:#6b7280;
+    font-size:7px;
+    line-height:1.3;
+    font-weight:700;
+}
+
+#orderPage .attendanceDaySummaryLine{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:5px;
+    flex-wrap:wrap;
+}
+
+#orderPage .attendanceDayBadge{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    padding:4px 7px;
+    border-radius:999px;
+    font-size:7px;
+    font-weight:800;
+}
+
+#orderPage .attendanceDayBadge.orders{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+#orderPage .attendanceDayBadge.minutes{
+    background:#fef3c7;
+    color:#b45309;
+}
+
+#orderPage .attendanceTimelineDot.duty_start{
+    background:#3b82f6;
+    box-shadow:0 0 0 4px #dbeafe;
+}
+
+#orderPage .attendanceTimelineDot.order_accepted{
+    background:#8b5cf6;
+    box-shadow:0 0 0 4px #ede9fe;
+}
+
+#orderPage .attendanceTimelineDot.picked_up{
+    background:#f59e0b;
+    box-shadow:0 0 0 4px #fef3c7;
+}
+
+#orderPage .attendanceTimelineDot.on_the_way{
+    background:#f97316;
+    box-shadow:0 0 0 4px #ffedd5;
+}
+
+#orderPage .attendanceTimelineDot.delivered{
+    background:#16a34a;
+    box-shadow:0 0 0 4px #dcfce7;
+}
+
+#orderPage .attendanceTimelineDot.duty_end{
+    background:#dc2626;
+    box-shadow:0 0 0 4px #fee2e2;
+}
+
+#orderPage .attendanceTimelineDot.order_created{
+    background:#64748b;
+    box-shadow:0 0 0 4px #e2e8f0;
+}
+
+#orderPage .attendanceDurationBadge{
+    display:inline-flex;
+    align-items:center;
+    margin-top:4px;
+    padding:3px 6px;
+    border-radius:999px;
+    background:#ecfdf3;
+    color:#15803d;
+    font-size:7px;
+    font-weight:800;
+}
+
 </style>
 </head>
 <body>
@@ -3373,7 +5054,7 @@ html,body{margin:0;padding:0;width:100%;min-height:100%;}
 </div>
 </div>
 <div class="profileMenu">
-<button class="profileMenuItem" onclick="openYourOrders()" type="button">
+<button class="profileMenuItem" onclick="openDeliveryEarningsOrders()" type="button">
 <span class="profileMenuIcon">
 <i class="fa-solid fa-box"></i>
 </span>
@@ -3382,7 +5063,7 @@ html,body{margin:0;padding:0;width:100%;min-height:100%;}
                 </span>
 <i class="fa-solid fa-chevron-right profileMenuArrow"></i>
 </button>
-<button class="profileMenuItem" onclick="openIDCard()" type="button">
+<button class="profileMenuItem" onclick="openDeliveryPartnerIDCard()" type="button">
 <span class="profileMenuIcon">
 <i class="fa-solid fa-id-card"></i>
 </span>
@@ -3509,6 +5190,60 @@ html,body{margin:0;padding:0;width:100%;min-height:100%;}
 </ol>
 </div>
 </div>
+
+<div class="yourOrdersOverlay" id="yourOrdersOverlay">
+    <div class="yourOrdersPage">
+        <div class="yourOrdersHeader">
+            <button
+                class="yourOrdersBack"
+                type="button"
+                onclick="closeDeliveryEarningsOrders()"
+                aria-label="Back"
+            >
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+
+            <div class="yourOrdersHeaderText">
+                <h2>Your Orders</h2>
+                <p>Delivered orders and earnings</p>
+            </div>
+        </div>
+
+        <div class="yourOrdersBody" id="yourOrdersBody">
+            <div class="yourOrdersLoader">
+                <span class="yourOrdersSpinner"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="attendanceOverlay" id="attendanceOverlay">
+    <div class="attendancePage">
+        <div class="attendanceHeader">
+            <button
+                class="attendanceBack"
+                type="button"
+                onclick="closeAttendance()"
+                aria-label="Back"
+            >
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+
+            <div class="attendanceHeaderText">
+                <h2>Attendance</h2>
+                <p>Duty activity and delivery performance</p>
+            </div>
+        </div>
+
+        <div class="attendanceBody" id="attendanceBody">
+            <div class="attendanceLoader">
+                <span class="attendanceSpinner"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="deliveryProofOverlay" id="deliveryProofOverlay">
 <div class="deliveryProofSheet" onclick="event.stopPropagation()">
 <div class="proofHandle"></div>
@@ -3550,18 +5285,45 @@ html,body{margin:0;padding:0;width:100%;min-height:100%;}
 </div>
 <div aria-modal="true" class="orderCancelledOverlay" id="orderCancelledOverlay" role="alertdialog">
 <div class="orderCancelledCard">
-<div class="orderCancelledIcon">
-<i class="fa-solid fa-circle-xmark"></i>
-</div>
-<h2>Order Cancelled</h2>
-<p>
-            This order was cancelled by the customer or admin.
-            Stop delivery and return to available orders.
+<div class="orderCancelledHandle"></div>
+
+<div class="orderCancelledContent">
+
+    <div class="cancelBasketScene" aria-hidden="true">
+        <span class="cancelDropItem one"></span>
+        <span class="cancelDropItem two"></span>
+        <span class="cancelDropItem three"></span>
+
+        <div class="cancelBasket">
+            <div class="cancelBasketHandle"></div>
+        </div>
+    </div>
+
+    <div class="orderCancelledText">
+        <h2>Order Cancelled</h2>
+        <p>
+            This order has been cancelled.
+            Tap New Order to continue receiving deliveries.
         </p>
-<strong class="orderCancelledOrderId" id="orderCancelledOrderId">Order</strong>
-<button class="orderCancelledOkBtn" id="orderCancelledOkBtn" type="button">
-            Find Another Order
-        </button>
+
+        <strong
+            class="orderCancelledOrderId"
+            id="orderCancelledOrderId"
+        >
+            Order
+        </strong>
+    </div>
+
+</div>
+
+<button
+    class="orderCancelledOkBtn"
+    id="orderCancelledOkBtn"
+    type="button"
+>
+    <i class="fa-solid fa-arrow-rotate-right"></i>
+    New Order
+</button>
 </div>
 </div>
 <div aria-modal="true" class="codPaymentOverlay" id="codPaymentOverlay" role="dialog">
@@ -3651,6 +5413,185 @@ html,body{margin:0;padding:0;width:100%;min-height:100%;}
 </div>
 </div>
 </div>
+
+<div class="partnerIdOverlay" id="partnerIdOverlay">
+
+    <div class="partnerIdSheet" id="partnerIdSheet">
+
+        <div class="partnerIdHandle"></div>
+
+        <div class="partnerIdHeader">
+            <h2>Delivery Partner ID</h2>
+
+            <button
+                class="partnerIdClose"
+                type="button"
+                onclick="closeDeliveryPartnerIDCard()"
+                aria-label="Close ID Card"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="partnerIdScene">
+
+            <div
+                class="partnerIdCard"
+                id="partnerIdCard"
+                onclick="flipDeliveryPartnerIDCard()"
+                role="button"
+                tabindex="0"
+                aria-label="Tap to flip ID card"
+            >
+
+                <div class="partnerIdFace partnerIdFront">
+
+                    <div class="partnerIdTop">
+
+                        <div class="partnerIdLogo">
+                            CEZOO
+                        </div>
+
+                        <div class="partnerIdVerified">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Verified
+                        </div>
+
+                    </div>
+
+                    <div class="partnerIdRole">
+                        Delivery Partner
+                    </div>
+
+                    <div
+                        class="partnerIdName"
+                        id="partnerIdName"
+                    >
+                        Delivery Partner
+                    </div>
+
+                    <div
+                        class="partnerIdBike"
+                        id="partnerIdBike"
+                    >
+                        —
+                    </div>
+
+                    <div class="partnerIdBottom">
+
+                        <div>
+                            <span class="partnerIdSmallLabel">
+                                Mobile
+                            </span>
+
+                            <strong
+                                class="partnerIdMobile"
+                                id="partnerIdMobile"
+                            >
+                                +91 —
+                            </strong>
+                        </div>
+
+                        <div class="partnerIdPowered">
+                            Powered by
+                            <br>
+                            Cezonal Solutions Private Limited
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="partnerIdFace partnerIdBack">
+
+                    <div class="partnerIdBackTop">
+
+                        <div class="partnerIdBackLogo">
+                            CEZOO
+                        </div>
+
+                        <div class="partnerIdBackTick">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Verified
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <div class="partnerIdSupportTitle">
+                            Support
+                        </div>
+
+                        <div class="partnerIdInfoList">
+
+                            <div class="partnerIdInfoRow">
+
+                                <div class="partnerIdInfoIcon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+
+                                <div class="partnerIdInfoText">
+                                    <span>Office</span>
+                                    <strong>
+                                        Tanuku V Max Opposite,
+                                        2nd Floor,
+                                        Tanuku
+                                    </strong>
+                                </div>
+
+                            </div>
+
+                            <div class="partnerIdInfoRow">
+
+                                <div class="partnerIdInfoIcon">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+
+                                <div class="partnerIdInfoText">
+                                    <span>Email</span>
+                                    <strong>support@cezoo.co.in</strong>
+                                </div>
+
+                            </div>
+
+                            <div class="partnerIdInfoRow">
+
+                                <div class="partnerIdInfoIcon">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+
+                                <div class="partnerIdInfoText">
+                                    <span>Phone</span>
+                                    <strong>+91 9344768947</strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="partnerIdBackFooter">
+                        Cezonal Solutions Private Limited
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="partnerIdHint">
+            <i class="fa-solid fa-arrows-rotate"></i>
+            Tap the ID card to flip
+        </div>
+
+    </div>
+
+</div>
+
 </section>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -3666,5 +5607,2257 @@ window.addEventListener('DOMContentLoaded', function(){
   else window.showPage('login');
 });
 </script>
+
+<script src="earnings.script.js"></script>
+
+<script>
+(function(){
+
+    let partnerIdFlipped = false;
+
+    function getPartnerIdMobile(){
+
+        return String(
+            localStorage.getItem("partner_mobile") || ""
+        )
+        .replace(/\D/g,"")
+        .trim();
+    }
+
+
+    function getPartnerIdName(){
+
+        const profileName =
+            document
+                .getElementById("profileName")
+                ?.textContent
+                ?.trim();
+
+        if(
+            profileName &&
+            profileName !== "Delivery Partner"
+        ){
+            return profileName;
+        }
+
+        return "Delivery Partner";
+    }
+
+
+    async function getPartnerRegistrationDetails(){
+
+        const mobile =
+            getPartnerIdMobile();
+
+        const fallback = {
+            name:getPartnerIdName(),
+            registrationNumber:"—"
+        };
+
+        if(!mobile){
+            return fallback;
+        }
+
+        if(
+            !window.supabase ||
+            typeof window.supabase.createClient !== "function"
+        ){
+            console.warn(
+                "Supabase is not ready for ID card registration lookup."
+            );
+
+            return fallback;
+        }
+
+        try{
+
+            const idCardSb =
+                window.supabase.createClient(
+                    "https://ycqwdeiykbkfmmlpgdzd.supabase.co",
+                    "sb_publishable_-4RzQVudUy_VsvSpHTxNfg_hrdsQW0j"
+                );
+
+            const {data,error} =
+                await idCardSb
+                    .from("delivery_partner_applications")
+                    .select("*")
+                    .eq("mobile",mobile)
+                    .order(
+                        "created_at",
+                        {ascending:false}
+                    )
+                    .limit(1)
+                    .maybeSingle();
+
+            if(error){
+                throw error;
+            }
+
+            if(!data){
+                return fallback;
+            }
+
+            const registrationCandidates = [
+                data.vehicle_number,
+                data.bike_number,
+                data.registration_number,
+                data.vehicle_registration_number,
+                data.vehicle_no,
+                data.bike_no,
+                data.number_plate,
+                data.vehicle_plate_number
+            ];
+
+            let registrationNumber =
+                "—";
+
+            for(
+                const value of
+                registrationCandidates
+            ){
+
+                const text =
+                    String(value || "")
+                        .trim();
+
+                if(text){
+                    registrationNumber = text;
+                    break;
+                }
+            }
+
+            const savedName =
+                String(data.name || "")
+                    .trim();
+
+            return {
+                name:
+                    savedName ||
+                    fallback.name,
+
+                registrationNumber
+            };
+
+        }catch(error){
+
+            console.error(
+                "ID card registration lookup error:",
+                {
+                    message:error?.message,
+                    details:error?.details,
+                    hint:error?.hint,
+                    code:error?.code,
+                    raw:error
+                }
+            );
+
+            return fallback;
+        }
+    }
+
+
+    window.openDeliveryPartnerIDCard =
+    async function(){
+
+        const overlay =
+            document.getElementById(
+                "partnerIdOverlay"
+            );
+
+        const card =
+            document.getElementById(
+                "partnerIdCard"
+            );
+
+        if(!overlay || !card){
+
+            console.error(
+                "ID Card elements not found"
+            );
+
+            return;
+        }
+
+
+        /*
+          Close profile drawer first.
+        */
+        document
+            .getElementById("profileOverlay")
+            ?.classList.remove("open");
+
+
+        const mobile =
+            getPartnerIdMobile();
+
+        const registration =
+            await getPartnerRegistrationDetails();
+
+        const name =
+            registration.name;
+
+        const registrationNumber =
+            registration.registrationNumber;
+
+
+        const nameElement =
+            document.getElementById(
+                "partnerIdName"
+            );
+
+        const mobileElement =
+            document.getElementById(
+                "partnerIdMobile"
+            );
+
+
+        const bikeElement =
+            document.getElementById(
+                "partnerIdBike"
+            );
+
+
+        if(nameElement){
+            nameElement.textContent =
+                name;
+        }
+
+
+        if(mobileElement){
+
+            mobileElement.textContent =
+                mobile
+                    ? "+91 " + mobile
+                    : "+91 —";
+        }
+
+
+        if(bikeElement){
+
+            bikeElement.textContent =
+                registrationNumber ||
+                "—";
+        }
+
+
+        partnerIdFlipped = false;
+
+        card.classList.remove(
+            "flipped"
+        );
+
+
+        overlay.classList.add(
+            "open"
+        );
+
+        document.body.style.overflow =
+            "hidden";
+    };
+
+
+    window.closeDeliveryPartnerIDCard =
+    function(){
+
+        document
+            .getElementById(
+                "partnerIdOverlay"
+            )
+            ?.classList.remove(
+                "open"
+            );
+
+        document.body.style.overflow =
+            "";
+
+        partnerIdFlipped = false;
+
+        document
+            .getElementById(
+                "partnerIdCard"
+            )
+            ?.classList.remove(
+                "flipped"
+            );
+    };
+
+
+    window.flipDeliveryPartnerIDCard =
+    function(){
+
+        const card =
+            document.getElementById(
+                "partnerIdCard"
+            );
+
+        if(!card){
+            return;
+        }
+
+
+        partnerIdFlipped =
+            !partnerIdFlipped;
+
+
+        card.classList.toggle(
+            "flipped",
+            partnerIdFlipped
+        );
+    };
+
+
+    /*
+      Close if dark backdrop is tapped.
+    */
+    document.addEventListener(
+        "click",
+        function(event){
+
+            const overlay =
+                document.getElementById(
+                    "partnerIdOverlay"
+                );
+
+            if(
+                overlay &&
+                event.target === overlay
+            ){
+                window.closeDeliveryPartnerIDCard();
+            }
+        }
+    );
+
+
+    /*
+      Keyboard support for card flip.
+    */
+    document.addEventListener(
+        "keydown",
+        function(event){
+
+            const card =
+                document.getElementById(
+                    "partnerIdCard"
+                );
+
+            if(
+                document.activeElement === card &&
+                (
+                    event.key === "Enter" ||
+                    event.key === " "
+                )
+            ){
+                event.preventDefault();
+                window.flipDeliveryPartnerIDCard();
+            }
+        }
+    );
+
+
+    /*
+      Compatibility alias.
+    */
+    window.openIDCard =
+        window.openDeliveryPartnerIDCard;
+
+})();
+</script>
+
+
+
+<script>
+(function(){
+
+    const overlay =
+        document.getElementById(
+            "orderCancelledOverlay"
+        );
+
+    const button =
+        document.getElementById(
+            "orderCancelledOkBtn"
+        );
+
+    if(!overlay || !button){
+        return;
+    }
+
+    button.addEventListener(
+        "click",
+        async function(){
+
+            overlay.classList.remove(
+                "open"
+            );
+
+            /*
+              Immediately show the normal waiting state so the cancelled
+              sheet disappears cleanly and the user sees that the app is
+              looking for the next order.
+            */
+            const list =
+                document.getElementById(
+                    "availableOrdersList"
+                );
+
+            if(list){
+
+                list.innerHTML = `
+                    <div class="searchingOrders">
+                        <i class="fa fa-search searchingIcon"></i>
+                        <h3>Searching for Orders...</h3>
+                        <p>
+                            Stay online to receive new delivery requests.
+                        </p>
+                    </div>
+                `;
+            }
+
+            /*
+              Refresh next available order silently if the order script
+              exposes loadOrders globally. If it does not, existing
+              realtime polling will continue normally.
+            */
+            if(
+                typeof window.loadOrders ===
+                "function"
+            ){
+                await window.loadOrders({
+                    silent:true
+                });
+            }
+        }
+    );
+
+})();
+</script>
+
+
+<script>
+(function(){
+
+const ATTENDANCE_SUPABASE_URL =
+    "https://ycqwdeiykbkfmmlpgdzd.supabase.co";
+
+const ATTENDANCE_SUPABASE_KEY =
+    "sb_publishable_-4RzQVudUy_VsvSpHTxNfg_hrdsQW0j";
+
+let attendanceSb = null;
+let attendanceRealtime = null;
+let attendanceOpen = false;
+let attendanceEvents = [];
+let attendanceOrders = [];
+let attendanceWrapTimer = null;
+
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+function getAttendanceMobile(){
+    return String(
+        localStorage.getItem("partner_mobile") || ""
+    ).replace(/\D/g,"").trim();
+}
+
+function getAttendanceStorageKey(){
+    return "cezoo_attendance_events_" + getAttendanceMobile();
+}
+
+function getAttendanceSb(){
+    if(attendanceSb){
+        return attendanceSb;
+    }
+
+    if(
+        !window.supabase ||
+        typeof window.supabase.createClient !== "function"
+    ){
+        return null;
+    }
+
+    attendanceSb =
+        window.supabase.createClient(
+            ATTENDANCE_SUPABASE_URL,
+            ATTENDANCE_SUPABASE_KEY
+        );
+
+    return attendanceSb;
+}
+
+function escapeAttendance(value){
+    return String(value ?? "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+}
+
+function attendanceIso(value){
+    if(!value){
+        return null;
+    }
+
+    const d = new Date(value);
+
+    if(Number.isNaN(d.getTime())){
+        return null;
+    }
+
+    return d.toISOString();
+}
+
+function attendanceDateKey(value){
+    const d = new Date(value);
+
+    if(Number.isNaN(d.getTime())){
+        return "";
+    }
+
+    return new Intl.DateTimeFormat(
+        "en-CA",
+        {
+            timeZone:"Asia/Kolkata",
+            year:"numeric",
+            month:"2-digit",
+            day:"2-digit"
+        }
+    ).format(d);
+}
+
+function attendanceTime(value){
+    const d = new Date(value);
+
+    if(Number.isNaN(d.getTime())){
+        return "—";
+    }
+
+    return new Intl.DateTimeFormat(
+        "en-IN",
+        {
+            timeZone:"Asia/Kolkata",
+            hour:"2-digit",
+            minute:"2-digit",
+            hour12:true
+        }
+    ).format(d);
+}
+
+function attendanceDayLabel(key){
+    if(!key){
+        return "Unknown";
+    }
+
+    const d =
+        new Date(key + "T12:00:00+05:30");
+
+    return new Intl.DateTimeFormat(
+        "en-IN",
+        {
+            weekday:"short",
+            day:"2-digit",
+            month:"short",
+            year:"numeric",
+            timeZone:"Asia/Kolkata"
+        }
+    ).format(d);
+}
+
+function attendanceShortDay(key){
+    const d =
+        new Date(key + "T12:00:00+05:30");
+
+    return new Intl.DateTimeFormat(
+        "en-IN",
+        {
+            weekday:"short",
+            timeZone:"Asia/Kolkata"
+        }
+    ).format(d);
+}
+
+function loadLocalAttendanceEvents(){
+    try{
+        const parsed =
+            JSON.parse(
+                localStorage.getItem(
+                    getAttendanceStorageKey()
+                ) || "[]"
+            );
+
+        return Array.isArray(parsed)
+            ? parsed
+            : [];
+    }catch(error){
+        return [];
+    }
+}
+
+function saveLocalAttendanceEvent(type,details = {}){
+
+    const mobile =
+        getAttendanceMobile();
+
+    if(!mobile){
+        return;
+    }
+
+    const events =
+        loadLocalAttendanceEvents();
+
+    const event = {
+        id:
+            Date.now() +
+            "-" +
+            Math.random().toString(36).slice(2,8),
+
+        type,
+        at:new Date().toISOString(),
+        ...details
+    };
+
+    events.push(event);
+
+    /*
+      Keep a reasonable local history.
+    */
+    const trimmed =
+        events.slice(-1500);
+
+    localStorage.setItem(
+        getAttendanceStorageKey(),
+        JSON.stringify(trimmed)
+    );
+
+    if(attendanceOpen){
+        scheduleAttendanceRefresh();
+    }
+}
+
+
+/* =====================================================
+   WRAP EXISTING ORDER FUNCTIONS
+   Records exact client action times from now onward.
+===================================================== */
+
+function wrapAttendanceFunctions(){
+
+    const wrappers = [
+
+        {
+            name:"startDuty",
+            type:"duty_start",
+            detail:function(){
+                return {};
+            }
+        },
+
+        {
+            name:"endDuty",
+            type:"duty_end",
+            detail:function(){
+                return {};
+            }
+        },
+
+        {
+            name:"acceptOrder",
+            type:"order_accepted",
+            detail:function(args){
+                return {
+                    order_id:
+                        String(args?.[0] || "")
+                };
+            }
+        },
+
+        {
+            name:"updateDeliveryStatus",
+            type:"status_change",
+            detail:function(args){
+                return {
+                    order_id:
+                        String(args?.[0] || ""),
+
+                    status:
+                        String(args?.[2] || args?.[1] || "")
+                            .toLowerCase()
+                };
+            }
+        }
+    ];
+
+    wrappers.forEach(function(item){
+
+        const original =
+            window[item.name];
+
+        if(
+            typeof original !== "function" ||
+            original.__attendanceWrapped
+        ){
+            return;
+        }
+
+        const wrapped =
+            async function(...args){
+
+                const result =
+                    await original.apply(
+                        this,
+                        args
+                    );
+
+                /*
+                  Record only after the original function resolves.
+                */
+                let type =
+                    item.type;
+
+                const detail =
+                    item.detail(args) || {};
+
+                if(
+                    item.name ===
+                    "updateDeliveryStatus"
+                ){
+                    const status =
+                        String(
+                            detail.status || ""
+                        );
+
+                    if(status.includes("pickup")){
+                        type = "picked_up";
+                    }else if(
+                        status.includes("way")
+                    ){
+                        type = "on_the_way";
+                    }else if(
+                        status.includes("deliver")
+                    ){
+                        type = "delivered";
+                    }
+                }
+
+                saveLocalAttendanceEvent(
+                    type,
+                    detail
+                );
+
+                return result;
+            };
+
+        wrapped.__attendanceWrapped =
+            true;
+
+        window[item.name] =
+            wrapped;
+    });
+}
+
+function keepAttendanceWrappersAlive(){
+    wrapAttendanceFunctions();
+
+    clearTimeout(
+        attendanceWrapTimer
+    );
+
+    attendanceWrapTimer =
+        setTimeout(
+            keepAttendanceWrappersAlive,
+            1500
+        );
+}
+
+
+/* =====================================================
+   SUPABASE ORDER HISTORY
+===================================================== */
+
+function firstOrderTimestamp(order,names){
+
+    for(const name of names){
+
+        const value =
+            attendanceIso(
+                order?.[name]
+            );
+
+        if(value){
+            return value;
+        }
+    }
+
+    return null;
+}
+
+function normalizeAttendanceOrder(order,paymentType){
+
+    const created =
+        firstOrderTimestamp(
+            order,
+            ["created_at"]
+        );
+
+    const accepted =
+        firstOrderTimestamp(
+            order,
+            [
+                "accepted_at",
+                "delivery_boy_accepted_at",
+                "delivery_accepted_at",
+                "accepted_time"
+            ]
+        );
+
+    const picked =
+        firstOrderTimestamp(
+            order,
+            [
+                "picked_up_at",
+                "pickup_at",
+                "picked_at"
+            ]
+        );
+
+    const onWay =
+        firstOrderTimestamp(
+            order,
+            [
+                "on_the_way_at",
+                "out_for_delivery_at"
+            ]
+        );
+
+    const delivered =
+        firstOrderTimestamp(
+            order,
+            [
+                "delivered_at",
+                "delivery_completed_at"
+            ]
+        );
+
+    const updated =
+        firstOrderTimestamp(
+            order,
+            ["updated_at"]
+        );
+
+    const status =
+        String(
+            order.delivery_status || ""
+        )
+        .toLowerCase()
+        .trim();
+
+    /*
+      If the table only stores updated_at, use it as a fallback
+      for the CURRENT final state only.
+    */
+    const deliveredFallback =
+        status === "delivered"
+            ? (
+                delivered ||
+                updated
+            )
+            : delivered;
+
+    return {
+        ...order,
+        _payment_type:paymentType,
+        _created:created,
+        _accepted:accepted,
+        _picked:picked,
+        _on_way:onWay,
+        _delivered:deliveredFallback
+    };
+}
+
+async function fetchAttendanceOrders(){
+
+    const mobile =
+        getAttendanceMobile();
+
+    const sb =
+        getAttendanceSb();
+
+    if(!mobile || !sb){
+        attendanceOrders = [];
+        return [];
+    }
+
+    const [
+        cashResponse,
+        upiResponse
+    ] = await Promise.all([
+
+        sb
+            .from("delivery_cash_orders")
+            .select("*")
+            .eq(
+                "delivery_boy_mobile",
+                mobile
+            ),
+
+        sb
+            .from("delivery_upi_orders")
+            .select("*")
+            .eq(
+                "delivery_boy_mobile",
+                mobile
+            )
+
+    ]);
+
+    if(cashResponse.error){
+        throw cashResponse.error;
+    }
+
+    if(upiResponse.error){
+        throw upiResponse.error;
+    }
+
+    attendanceOrders = [
+        ...(cashResponse.data || [])
+            .map(function(order){
+                return normalizeAttendanceOrder(
+                    order,
+                    "cash"
+                );
+            }),
+
+        ...(upiResponse.data || [])
+            .map(function(order){
+                return normalizeAttendanceOrder(
+                    order,
+                    "upi"
+                );
+            })
+    ];
+
+    return attendanceOrders;
+}
+
+
+
+function getOrderDeliveryMinutes(order){
+
+    const start =
+        order._accepted ||
+        order._created;
+
+    const end =
+        order._delivered;
+
+    if(!start || !end){
+        return null;
+    }
+
+    const startMs =
+        new Date(start).getTime();
+
+    const endMs =
+        new Date(end).getTime();
+
+    if(
+        !Number.isFinite(startMs) ||
+        !Number.isFinite(endMs) ||
+        endMs <= startMs
+    ){
+        return null;
+    }
+
+    return Math.max(
+        1,
+        Math.round(
+            (endMs - startMs) /
+            60000
+        )
+    );
+}
+
+
+function findDeliveryMinutes(orderId){
+
+    const order =
+        attendanceOrders.find(
+            function(item){
+
+                return String(
+                    item.order_id ||
+                    item.id ||
+                    ""
+                ) ===
+                String(orderId || "");
+            }
+        );
+
+    if(!order){
+        return null;
+    }
+
+    return getOrderDeliveryMinutes(
+        order
+    );
+}
+
+
+/* =====================================================
+   BUILD EVENTS
+===================================================== */
+
+function statusLabel(type,status){
+
+    if(type === "duty_start"){
+        return "Duty Started";
+    }
+
+    if(type === "duty_end"){
+        return "Duty Ended";
+    }
+
+    if(type === "order_accepted"){
+        return "Order Accepted";
+    }
+
+    if(type === "picked_up"){
+        return "Picked Up";
+    }
+
+    if(type === "on_the_way"){
+        return "On The Way";
+    }
+
+    if(type === "delivered"){
+        return "Delivered";
+    }
+
+    if(type === "status_change"){
+        return status
+            ? (
+                status
+                    .replaceAll("_"," ")
+                    .replace(/\b\w/g,function(c){
+                        return c.toUpperCase();
+                    })
+            )
+            : "Status Updated";
+    }
+
+    return "Activity";
+}
+
+function buildAttendanceEvents(){
+
+    const result = [];
+
+    /*
+      Local exact events.
+    */
+    loadLocalAttendanceEvents()
+        .forEach(function(event){
+
+            result.push({
+                source:"local",
+                type:event.type,
+                at:event.at,
+                order_id:event.order_id || "",
+                status:event.status || "",
+                label:
+                    statusLabel(
+                        event.type,
+                        event.status
+                    )
+            });
+        });
+
+
+    /*
+      DB events where real timestamps exist.
+    */
+    attendanceOrders.forEach(function(order){
+
+        const orderId =
+            String(
+                order.order_id ||
+                order.id ||
+                ""
+            );
+
+        const add =
+            function(type,at,label){
+
+                if(!at){
+                    return;
+                }
+
+                result.push({
+                    source:"db",
+                    type,
+                    at,
+                    order_id:orderId,
+                    payment_type:
+                        order._payment_type,
+                    label
+                });
+            };
+
+        add(
+            "order_created",
+            order._created,
+            "Order Received"
+        );
+
+        add(
+            "order_accepted",
+            order._accepted,
+            "Order Accepted"
+        );
+
+        add(
+            "picked_up",
+            order._picked,
+            "Picked Up"
+        );
+
+        add(
+            "on_the_way",
+            order._on_way,
+            "On The Way"
+        );
+
+        add(
+            "delivered",
+            order._delivered,
+            "Delivered"
+        );
+    });
+
+
+    /*
+      Remove close duplicates from DB/local merged events.
+    */
+    result.sort(function(a,b){
+        return (
+            new Date(a.at).getTime() -
+            new Date(b.at).getTime()
+        );
+    });
+
+    const deduped = [];
+
+    result.forEach(function(event){
+
+        const currentTime =
+            new Date(event.at).getTime();
+
+        const duplicate =
+            deduped.some(function(existing){
+
+                if(
+                    existing.type !== event.type ||
+                    String(existing.order_id || "") !==
+                    String(event.order_id || "")
+                ){
+                    return false;
+                }
+
+                const diff =
+                    Math.abs(
+                        new Date(existing.at).getTime() -
+                        currentTime
+                    );
+
+                return diff < 90 * 1000;
+            });
+
+        if(!duplicate){
+            deduped.push(event);
+        }
+    });
+
+    attendanceEvents =
+        deduped;
+
+    return deduped;
+}
+
+
+/* =====================================================
+   DAILY STATS
+===================================================== */
+
+function buildAttendanceDays(){
+
+    const dayMap = new Map();
+
+    const getDay =
+        function(key){
+
+            if(!dayMap.has(key)){
+                dayMap.set(
+                    key,
+                    {
+                        key,
+                        events:[],
+                        delivered:0,
+                        accepted:0,
+                        firstActivity:null,
+                        lastActivity:null,
+                        workMs:0,
+                        deliveryMinutes:[],
+                        avgDeliveryMinutes:null
+                    }
+                );
+            }
+
+            return dayMap.get(key);
+        };
+
+
+    attendanceEvents.forEach(
+        function(event){
+
+            const key =
+                attendanceDateKey(
+                    event.at
+                );
+
+            if(!key){
+                return;
+            }
+
+            const day =
+                getDay(key);
+
+            day.events.push(event);
+
+            if(
+                event.type ===
+                "delivered"
+            ){
+                day.delivered++;
+
+                const minutes =
+                    findDeliveryMinutes(
+                        event.order_id
+                    );
+
+                if(
+                    Number.isFinite(minutes)
+                ){
+                    day.deliveryMinutes.push(
+                        minutes
+                    );
+                }
+            }
+
+            if(
+                event.type ===
+                "order_accepted"
+            ){
+                day.accepted++;
+            }
+
+            const time =
+                new Date(
+                    event.at
+                ).getTime();
+
+            if(
+                !day.firstActivity ||
+                time <
+                new Date(
+                    day.firstActivity
+                ).getTime()
+            ){
+                day.firstActivity =
+                    event.at;
+            }
+
+            if(
+                !day.lastActivity ||
+                time >
+                new Date(
+                    day.lastActivity
+                ).getTime()
+            ){
+                day.lastActivity =
+                    event.at;
+            }
+        }
+    );
+
+
+    /*
+      Compute exact local duty duration when start/end pairs are present.
+    */
+    dayMap.forEach(function(day){
+
+        if(
+            day.deliveryMinutes.length
+        ){
+            day.avgDeliveryMinutes =
+                Math.round(
+                    day.deliveryMinutes.reduce(
+                        function(total,value){
+                            return total + value;
+                        },
+                        0
+                    ) /
+                    day.deliveryMinutes.length
+                );
+        }
+
+        let openStart = null;
+
+        day.events
+            .slice()
+            .sort(function(a,b){
+                return (
+                    new Date(a.at) -
+                    new Date(b.at)
+                );
+            })
+            .forEach(function(event){
+
+                if(
+                    event.type ===
+                    "duty_start"
+                ){
+                    openStart =
+                        new Date(
+                            event.at
+                        ).getTime();
+                }
+
+                if(
+                    event.type ===
+                    "duty_end" &&
+                    openStart
+                ){
+
+                    const end =
+                        new Date(
+                            event.at
+                        ).getTime();
+
+                    if(end > openStart){
+                        day.workMs +=
+                            end - openStart;
+                    }
+
+                    openStart = null;
+                }
+            });
+
+        if(
+            openStart &&
+            day.key ===
+            attendanceDateKey(
+                new Date()
+            )
+        ){
+            day.workMs +=
+                Date.now() -
+                openStart;
+        }
+
+        /*
+          FALLBACK FOR LOGIN / LOGOFF DUTY TIME
+
+          Older attendance data may not have explicit duty_start/duty_end
+          events because attendance tracking was added later.
+
+          In that case:
+          - login/start = first recorded work activity of the day
+          - logoff/end   = last recorded work activity of the day
+          - if today is still active, count until current time
+
+          This prevents Duty Time from showing "—".
+        */
+        if(
+            day.workMs <= 0 &&
+            day.firstActivity
+        ){
+
+            const startMs =
+                new Date(
+                    day.firstActivity
+                ).getTime();
+
+            let endMs = null;
+
+            const todayKey =
+                attendanceDateKey(
+                    new Date()
+                );
+
+            /*
+              If today and duty appears active, keep counting live.
+              Otherwise use the last work activity as logoff/end fallback.
+            */
+            const hasDutyEnd =
+                day.events.some(
+                    function(event){
+                        return event.type === "duty_end";
+                    }
+                );
+
+            if(
+                day.key === todayKey &&
+                !hasDutyEnd
+            ){
+                endMs =
+                    Date.now();
+            }else if(
+                day.lastActivity
+            ){
+                endMs =
+                    new Date(
+                        day.lastActivity
+                    ).getTime();
+            }
+
+            if(
+                Number.isFinite(startMs) &&
+                Number.isFinite(endMs) &&
+                endMs > startMs
+            ){
+                day.workMs =
+                    endMs -
+                    startMs;
+            }
+        }
+    });
+
+
+    return Array
+        .from(dayMap.values())
+        .sort(function(a,b){
+            return b.key.localeCompare(a.key);
+        });
+}
+
+function formatWorkDuration(ms){
+
+    if(!ms || ms < 0){
+        return "—";
+    }
+
+    const hours =
+        Math.floor(
+            ms / 3600000
+        );
+
+    const minutes =
+        Math.floor(
+            (ms % 3600000) /
+            60000
+        );
+
+    return (
+        String(hours).padStart(2,"0") +
+        "h " +
+        String(minutes).padStart(2,"0") +
+        "m"
+    );
+}
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function attendanceTimelineHtml(day){
+
+    const events =
+        day.events
+            .slice()
+            .sort(function(a,b){
+                return (
+                    new Date(a.at) -
+                    new Date(b.at)
+                );
+            });
+
+    if(!events.length){
+        return "";
+    }
+
+    return events
+        .map(function(event){
+
+            const dotClass =
+                event.type || "";
+
+            const details = [];
+
+            const deliveryMinutes =
+                event.type === "delivered"
+                    ? findDeliveryMinutes(
+                        event.order_id
+                    )
+                    : null;
+
+            if(event.order_id){
+                details.push(
+                    "Order #" +
+                    escapeAttendance(
+                        event.order_id
+                    )
+                );
+            }
+
+            if(event.payment_type){
+                details.push(
+                    String(
+                        event.payment_type
+                    ).toUpperCase()
+                );
+            }
+
+            return `
+                <div class="attendanceTimelineItem">
+
+                    <span class="
+                        attendanceTimelineDot
+                        ${escapeAttendance(
+                            dotClass
+                        )}
+                    "></span>
+
+                    <div class="attendanceTimelineText">
+
+                        <strong>
+                            ${escapeAttendance(
+                                event.label ||
+                                "Activity"
+                            )}
+                        </strong>
+
+                        <span>
+                            ${attendanceTime(
+                                event.at
+                            )}
+                        </span>
+
+                    </div>
+
+                    ${
+                        details.length
+                            ? `
+                                <div class="
+                                    attendanceTimelineSub
+                                ">
+                                    ${details.join(" · ")}
+                                </div>
+                            `
+                            : ""
+                    }
+
+                    ${
+                        Number.isFinite(
+                            deliveryMinutes
+                        )
+                            ? `
+                                <span class="
+                                    attendanceDurationBadge
+                                ">
+                                    Delivered in
+                                    ${deliveryMinutes}
+                                    min
+                                </span>
+                            `
+                            : ""
+                    }
+
+                </div>
+            `;
+        })
+        .join("");
+}
+
+function attendanceChartHtml(days){
+
+    const today =
+        new Date();
+
+    const chartDays = [];
+
+    for(let i = 6; i >= 0; i--){
+
+        const d =
+            new Date(
+                today.getFullYear(),
+                today.getMonth(),
+                today.getDate() - i,
+                12,0,0
+            );
+
+        const key =
+            new Intl.DateTimeFormat(
+                "en-CA",
+                {
+                    timeZone:"Asia/Kolkata",
+                    year:"numeric",
+                    month:"2-digit",
+                    day:"2-digit"
+                }
+            ).format(d);
+
+        const found =
+            days.find(function(day){
+                return day.key === key;
+            });
+
+        chartDays.push({
+            key,
+            delivered:
+                found?.delivered || 0,
+
+            avgMinutes:
+                found?.avgDeliveryMinutes ||
+                0
+        });
+    }
+
+    const maxOrders =
+        Math.max(
+            1,
+            ...chartDays.map(
+                function(day){
+                    return day.delivered;
+                }
+            )
+        );
+
+    const maxMinutes =
+        Math.max(
+            1,
+            ...chartDays.map(
+                function(day){
+                    return day.avgMinutes;
+                }
+            )
+        );
+
+
+    return `
+        <div class="attendanceChartLegend">
+
+            <div class="attendanceLegendItem">
+                <span class="
+                    attendanceLegendDot
+                    orders
+                "></span>
+                Delivered orders
+            </div>
+
+            <div class="attendanceLegendItem">
+                <span class="
+                    attendanceLegendDot
+                    minutes
+                "></span>
+                Avg delivery minutes
+            </div>
+
+        </div>
+
+        <div class="attendanceChartDual">
+
+            ${
+                chartDays
+                    .map(function(day){
+
+                        const orderHeight =
+                            Math.max(
+                                day.delivered
+                                    ? 10
+                                    : 3,
+                                Math.round(
+                                    (
+                                        day.delivered /
+                                        maxOrders
+                                    ) * 100
+                                )
+                            );
+
+                        const minutesHeight =
+                            Math.max(
+                                day.avgMinutes
+                                    ? 10
+                                    : 3,
+                                Math.round(
+                                    (
+                                        day.avgMinutes /
+                                        maxMinutes
+                                    ) * 100
+                                )
+                            );
+
+                        return `
+                            <div class="
+                                attendanceChartCol
+                            ">
+
+                                <div class="
+                                    attendanceChartNumbers
+                                ">
+                                    ${day.delivered} orders
+                                    <br>
+                                    ${
+                                        day.avgMinutes
+                                            ? day.avgMinutes +
+                                                " min"
+                                            : "— min"
+                                    }
+                                </div>
+
+                                <div class="
+                                    attendanceDualBars
+                                ">
+
+                                    <div
+                                        class="
+                                            attendanceMiniBar
+                                            orders
+                                        "
+                                        style="
+                                            height:
+                                            ${orderHeight}%
+                                        "
+                                    ></div>
+
+                                    <div
+                                        class="
+                                            attendanceMiniBar
+                                            minutes
+                                        "
+                                        style="
+                                            height:
+                                            ${minutesHeight}%
+                                        "
+                                    ></div>
+
+                                </div>
+
+                                <span class="
+                                    attendanceChartLabel
+                                ">
+                                    ${attendanceShortDay(
+                                        day.key
+                                    )}
+                                </span>
+
+                            </div>
+                        `;
+
+                    })
+                    .join("")
+            }
+
+        </div>
+    `;
+}
+
+
+function renderAttendance(){
+
+    const body =
+        document.getElementById(
+            "attendanceBody"
+        );
+
+    if(!body){
+        return;
+    }
+
+    const days =
+        buildAttendanceDays();
+
+    if(!days.length){
+
+        body.innerHTML = `
+            <div class="attendanceEmpty">
+
+                <i class="
+                    fa-solid
+                    fa-calendar-check
+                "></i>
+
+                <h3>
+                    No attendance activity yet
+                </h3>
+
+                <p>
+                    Duty and delivery activity will
+                    appear here as you work.
+                </p>
+
+            </div>
+        `;
+
+        return;
+    }
+
+
+    const totalDelivered =
+        days.reduce(
+            function(total,day){
+                return total +
+                    day.delivered;
+            },
+            0
+        );
+
+    const workedDays =
+        days.filter(
+            function(day){
+                return (
+                    day.events.length > 0
+                );
+            }
+        ).length;
+
+    const totalWorkMs =
+        days.reduce(
+            function(total,day){
+                return total +
+                    day.workMs;
+            },
+            0
+        );
+
+
+    body.innerHTML = `
+
+        <div class="attendanceSummaryGrid">
+
+            <div class="
+                attendanceSummaryCard
+                green
+            ">
+                <span>
+                    Delivered
+                </span>
+
+                <strong>
+                    ${totalDelivered}
+                </strong>
+            </div>
+
+            <div class="attendanceSummaryCard">
+                <span>
+                    Worked Days
+                </span>
+
+                <strong>
+                    ${workedDays}
+                </strong>
+            </div>
+
+            <div class="attendanceSummaryCard">
+                <span>
+                    Login → Logoff
+                </span>
+
+                <strong>
+                    ${formatWorkDuration(
+                        totalWorkMs
+                    )}
+                </strong>
+            </div>
+
+        </div>
+
+
+        <div class="attendanceSection">
+
+            <div class="attendanceSectionTitle">
+
+                <h3>
+                    Delivery Performance · 7 Days
+                </h3>
+
+                <span>
+                    Orders + Minutes
+                </span>
+
+            </div>
+
+            <div class="attendanceChart">
+                ${attendanceChartHtml(days)}
+            </div>
+
+        </div>
+
+
+        <div class="attendanceSection">
+
+            <div class="attendanceSectionTitle">
+
+                <h3>
+                    Daily Attendance
+                </h3>
+
+                <span>
+                    Tap a day
+                </span>
+
+            </div>
+
+            <div class="attendanceDayList">
+
+                ${
+                    days.map(
+                        function(day,index){
+
+                            return `
+                                <div
+                                    class="
+                                        attendanceDay
+                                        ${
+                                            index === 0
+                                                ? "open"
+                                                : ""
+                                        }
+                                    "
+                                >
+
+                                    <button
+                                        type="button"
+                                        class="
+                                            attendanceDayHead
+                                        "
+                                        onclick="
+                                            this.parentElement
+                                                .classList
+                                                .toggle('open')
+                                        "
+                                    >
+
+                                        <div class="
+                                            attendanceDayDate
+                                        ">
+
+                                            <strong>
+                                                ${attendanceDayLabel(
+                                                    day.key
+                                                )}
+                                            </strong>
+
+                                            <span>
+                                                ${
+                                                    day.firstActivity
+                                                        ? attendanceTime(
+                                                            day.firstActivity
+                                                        ) +
+                                                        " – " +
+                                                        attendanceTime(
+                                                            day.lastActivity
+                                                        )
+                                                        : "No activity"
+                                                }
+                                            </span>
+
+                                            <div class="
+                                                attendanceDaySummaryLine
+                                            ">
+
+                                                <span class="
+                                                    attendanceDayBadge
+                                                    orders
+                                                ">
+                                                    ${day.delivered}
+                                                    delivered
+                                                </span>
+
+                                                <span class="
+                                                    attendanceDayBadge
+                                                    minutes
+                                                ">
+                                                    ${
+                                                        day.avgDeliveryMinutes
+                                                            ? day.avgDeliveryMinutes +
+                                                                " min avg"
+                                                            : "No avg time"
+                                                    }
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="
+                                            attendanceDayStats
+                                        ">
+
+                                            <div class="
+                                                attendanceDayStat
+                                            ">
+                                                <span>
+                                                    Delivered
+                                                </span>
+
+                                                <strong>
+                                                    ${day.delivered}
+                                                </strong>
+                                            </div>
+
+                                            <div class="
+                                                attendanceDayStat
+                                            ">
+                                                <span>
+                                                    Worked
+                                                </span>
+
+                                                <strong>
+                                                    ${formatWorkDuration(
+                                                        day.workMs
+                                                    )}
+                                                </strong>
+                                            </div>
+
+                                            <i class="
+                                                fa-solid
+                                                fa-chevron-down
+                                                attendanceDayChevron
+                                            "></i>
+
+                                        </div>
+
+                                    </button>
+
+                                    <div class="
+                                        attendanceTimeline
+                                    ">
+                                        ${attendanceTimelineHtml(
+                                            day
+                                        )}
+                                    </div>
+
+                                </div>
+                            `;
+                        }
+                    ).join("")
+                }
+
+            </div>
+
+        </div>
+    `;
+}
+
+
+/* =====================================================
+   LOAD + REALTIME
+===================================================== */
+
+async function loadAttendance(){
+
+    const body =
+        document.getElementById(
+            "attendanceBody"
+        );
+
+    if(body){
+        body.innerHTML = `
+            <div class="attendanceLoader">
+                <span class="attendanceSpinner"></span>
+            </div>
+        `;
+    }
+
+    try{
+
+        await fetchAttendanceOrders();
+
+        buildAttendanceEvents();
+
+        renderAttendance();
+
+    }catch(error){
+
+        console.error(
+            "Attendance load error:",
+            error
+        );
+
+        /*
+          Local duty activity still remains usable
+          even if a network request fails.
+        */
+        attendanceOrders = [];
+
+        buildAttendanceEvents();
+
+        renderAttendance();
+    }
+}
+
+function scheduleAttendanceRefresh(){
+
+    clearTimeout(
+        scheduleAttendanceRefresh._timer
+    );
+
+    scheduleAttendanceRefresh._timer =
+        setTimeout(
+            async function(){
+
+                if(!attendanceOpen){
+                    return;
+                }
+
+                try{
+                    await fetchAttendanceOrders();
+                }catch(error){
+                    console.warn(
+                        "Attendance live refresh error:",
+                        error
+                    );
+                }
+
+                buildAttendanceEvents();
+                renderAttendance();
+
+            },
+            180
+        );
+}
+
+function startAttendanceRealtime(){
+
+    const sb =
+        getAttendanceSb();
+
+    const mobile =
+        getAttendanceMobile();
+
+    if(!sb || !mobile){
+        return;
+    }
+
+    if(attendanceRealtime){
+        sb.removeChannel(
+            attendanceRealtime
+        );
+    }
+
+    attendanceRealtime =
+        sb
+            .channel(
+                "cezoo-attendance-" +
+                mobile
+            )
+            .on(
+                "postgres_changes",
+                {
+                    event:"*",
+                    schema:"public",
+                    table:
+                        "delivery_cash_orders",
+                    filter:
+                        "delivery_boy_mobile=eq." +
+                        mobile
+                },
+                scheduleAttendanceRefresh
+            )
+            .on(
+                "postgres_changes",
+                {
+                    event:"*",
+                    schema:"public",
+                    table:
+                        "delivery_upi_orders",
+                    filter:
+                        "delivery_boy_mobile=eq." +
+                        mobile
+                },
+                scheduleAttendanceRefresh
+            )
+            .subscribe();
+}
+
+
+/* =====================================================
+   OPEN / CLOSE
+===================================================== */
+
+window.openAttendance =
+async function(){
+
+    const overlay =
+        document.getElementById(
+            "attendanceOverlay"
+        );
+
+    if(!overlay){
+        return;
+    }
+
+    document
+        .getElementById(
+            "profileOverlay"
+        )
+        ?.classList.remove(
+            "open"
+        );
+
+    attendanceOpen = true;
+
+    overlay.classList.add(
+        "open"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+
+    await loadAttendance();
+
+    startAttendanceRealtime();
+};
+
+window.closeAttendance =
+function(){
+
+    document
+        .getElementById(
+            "attendanceOverlay"
+        )
+        ?.classList.remove(
+            "open"
+        );
+
+    attendanceOpen = false;
+
+    document.body.style.overflow =
+        "";
+};
+
+
+/* =====================================================
+   START WRAPPERS
+===================================================== */
+
+if(
+    document.readyState ===
+        "loading"
+){
+    document.addEventListener(
+        "DOMContentLoaded",
+        keepAttendanceWrappersAlive,
+        {once:true}
+    );
+}else{
+    keepAttendanceWrappersAlive();
+}
+
+})();
+</script>
+
 </body>
 </html>
